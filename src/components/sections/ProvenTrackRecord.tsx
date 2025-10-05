@@ -76,7 +76,7 @@ export default function ProvenTrackRecord() {
           <h2 className="text-4xl lg:text-5xl font-display text-deep-navy mb-6">
             Proven <span className="text-steel-blue">Track Record</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed px-4">
             Our results speak for themselves. With decades of experience and a commitment to excellence, we deliver outcomes that exceed expectations.
           </p>
         </motion.div>

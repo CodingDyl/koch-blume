@@ -72,7 +72,7 @@ export default function Testimonials() {
           <h2 className="text-4xl lg:text-5xl font-display text-deep-navy mb-6">
             What Our <span className="text-steel-blue">Clients Say</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed px-4">
             Don't just take our word for it. Hear from the clients whose lives and businesses we've helped transform through expert legal representation.
           </p>
         </motion.div>

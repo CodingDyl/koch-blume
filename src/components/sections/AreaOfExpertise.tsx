@@ -63,7 +63,7 @@ export default function AreaOfExpertise() {
           <h2 className="text-4xl lg:text-5xl font-display text-white mb-6">
             Areas of <span className="text-deep-navy">Expertise</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl text-white/80 max-w-6xl mx-auto leading-relaxed px-4">
             Our experienced attorneys specialize in multiple practice areas, providing comprehensive legal solutions tailored to your unique needs.
           </p>
         </motion.div>
@@ -128,7 +128,7 @@ export default function AreaOfExpertise() {
             <h3 className="text-3xl lg:text-4xl font-display mb-4">
               Need Legal Assistance?
             </h3>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed px-4">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-200 mb-8 max-w-6xl mx-auto leading-relaxed px-4">
               Our team of experienced attorneys is ready to help you navigate any legal challenge with confidence and expertise.
             </p>
             <motion.button

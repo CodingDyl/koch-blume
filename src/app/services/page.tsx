@@ -334,7 +334,7 @@ export default function ServicesPage() {
               Professional <span className="text-steel-blue">Legal Services</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-xl lg:text-2xl text-white/80 max-w-6xl mx-auto leading-relaxed mb-12">
               Comprehensive legal solutions tailored to your unique needs. From corporate law to family matters, 
               we provide expert representation with proven results.
             </p>
@@ -433,7 +433,7 @@ export default function ServicesPage() {
 
       {/* Legal Case Assessment Quiz */}
       <section className="py-20 bg-light-gray">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -772,7 +772,7 @@ export default function ServicesPage() {
             <h2 className="text-4xl lg:text-6xl font-display font-bold mb-6">
               Ready to Get <span className="text-cyan-400">Started?</span>
             </h2>
-            <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-6xl mx-auto leading-relaxed">
               Contact us today for a consultation and discover how our experienced team can help you achieve your legal goals.
             </p>
             

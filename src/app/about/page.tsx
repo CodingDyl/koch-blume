@@ -240,7 +240,7 @@ export default function AboutPage() {
               About <span className="bg-gradient-to-r from-steel-blue to-cyan-400 bg-clip-text text-transparent">Kochukov & Blume</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-xl lg:text-2xl text-white/80 max-w-6xl mx-auto leading-relaxed mb-12">
               A sophisticated, professional law firm committed to delivering exceptional legal services with integrity, expertise, and compassion.
             </p>
 
@@ -521,7 +521,7 @@ export default function AboutPage() {
             </p>
             
             {/* Modern Search Bar */}
-            <div className="max-w-5xl mx-auto relative">
+            <div className="max-w-6xl mx-auto relative">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
                 <input
@@ -739,7 +739,7 @@ export default function AboutPage() {
             <h2 className="text-4xl lg:text-6xl font-display font-bold mb-6">
               Ready to Work <span className="text-cyan-400">With Us?</span>
             </h2>
-            <p className="text-xl lg:text-2xl text-white/80 mb-16 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-white/80 mb-16 max-w-6xl mx-auto leading-relaxed">
               Contact us today for a consultation and discover how our experienced team can help you achieve your legal goals.
             </p>
             

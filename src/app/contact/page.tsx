@@ -307,7 +307,7 @@ export default function ContactPage() {
 
       {/* Interactive Consultation Scheduler */}
       <section className="py-20 bg-light-gray">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -412,7 +412,7 @@ export default function ContactPage() {
 
       {/* Contact Form with Validation */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -684,7 +684,7 @@ export default function ContactPage() {
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -760,7 +760,7 @@ export default function ContactPage() {
             <h2 className="text-4xl lg:text-6xl font-display font-bold mb-6">
               Ready to Get <span className="text-cyan-400">Started?</span>
             </h2>
-            <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-6xl mx-auto leading-relaxed">
               Don't wait to protect your rights. Contact us today for a consultation and take the first step towards resolving your legal matter.
             </p>
             

@@ -133,14 +133,14 @@ export default function Navbar() {
                 ))}
                 
                 <div className="px-4 pt-4 space-y-3 border-t border-gray-200">
-                  <Link href="/schedule-consultation">
-                  <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white group"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Schedule Consultation
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <Link href="/schedule-consultation" className="block">
+                    <Button
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white group"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Schedule Consultation
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
                   </Link>
                 </div>
               </div>

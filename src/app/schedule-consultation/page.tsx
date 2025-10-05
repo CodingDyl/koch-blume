@@ -247,7 +247,7 @@ export default function ScheduleConsultationPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <div className="bg-white rounded-3xl shadow-2xl p-12">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
@@ -346,7 +346,7 @@ export default function ScheduleConsultationPage() {
 
       {/* Booking Steps */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Progress Steps */}
           <div className="mb-12">
             <div className="flex items-center justify-center space-x-8">
