@@ -56,3 +56,5 @@ function Button({
 }
 
 export { Button, buttonVariants }
+export { AnimatedButton } from './animated-button'
+export { ThemeAnimatedButton } from './theme-animated-button'

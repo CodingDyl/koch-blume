@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import "./globals.css";
 import LenisProvider from "./LenisProvider";
-import Navbar from "@/components/ui/Navbar";
+import NewNavbar from "@/components/ui/NewNavbar";
 import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className="font-sans bg-white text-gray-900">
         <LenisProvider>
-          <Navbar />
+          <NewNavbar />
           {children}
           <Footer />
         </LenisProvider>

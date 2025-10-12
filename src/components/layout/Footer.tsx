@@ -16,8 +16,10 @@ import {
   Scale,
   Shield,
   FileText,
-  Users
+  Users,
+  ArrowRight
 } from "lucide-react";
+import { ThemeAnimatedButton } from "@/components/ui/button";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -84,7 +86,7 @@ export default function Footer() {
   return (
     <footer className="bg-deep-navy text-white">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
           
           {/* Company Info & Logo */}
@@ -120,41 +122,34 @@ export default function Footer() {
             {/* Trust Indicators */}
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Scale className="w-4 h-4 text-steel-blue" />
-                <span>Licensed in South Africa</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <Shield className="w-4 h-4 text-steel-blue" />
-                <span>20+ Years Combined Experience</span>
+                <span>Licensed & Insured</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <Users className="w-4 h-4 text-steel-blue" />
                 <span>500+ Cases Won</span>
               </div>
+              <div className="flex items-center space-x-2 text-sm text-gray-300">
+                <Scale className="w-4 h-4 text-steel-blue" />
+                <span>20+ Years Experience</span>
+              </div>
             </div>
 
             {/* Social Links */}
-            <div className="space-y-4">
-              <h4 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">
-                Follow Us
-              </h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <motion.a
-                      key={social.name}
-                      href={social.href}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 transition-colors duration-200 ${social.color}`}
-                      aria-label={social.name}
-                    >
-                      <Icon className="w-5 h-5" />
-                    </motion.a>
-                  );
-                })}
-              </div>
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className={`w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center transition-colors duration-200 ${social.color}`}
+                    aria-label={social.name}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -167,7 +162,7 @@ export default function Footer() {
             className="space-y-6"
           >
             <h4 className="text-lg font-display font-semibold text-white">
-              Legal Services
+              Services
             </h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
@@ -252,27 +247,23 @@ export default function Footer() {
             </div>
 
             {/* CTA Button */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="pt-4"
-            >
-              <Link
-                href="/schedule-consultation"
-                className="inline-flex items-center justify-center w-full bg-steel-blue hover:bg-steel-blue/90 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 group"
+            <div className="pt-4">
+              <ThemeAnimatedButton
+                variant="cyan"
+                size="md"
+                className="w-full"
+                onClick={() => window.location.href = '/contact'}
               >
-                <FileText className="w-4 h-4 mr-2" />
                 Schedule Consultation
-                <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
-              </Link>
-            </motion.div>
+              </ThemeAnimatedButton>
+            </div>
           </motion.div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <motion.div
@@ -293,23 +284,14 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm"
             >
-              <Link
-                href="/privacy"
-                className="text-gray-400 hover:text-steel-blue transition-colors duration-200"
-              >
+              <Link href="/privacy" className="text-gray-400 hover:text-steel-blue transition-colors duration-200">
                 Privacy Policy
               </Link>
-              <Link
-                href="/terms"
-                className="text-gray-400 hover:text-steel-blue transition-colors duration-200"
-              >
+              <Link href="/terms" className="text-gray-400 hover:text-steel-blue transition-colors duration-200">
                 Terms of Service
               </Link>
-              <Link
-                href="/disclaimer"
-                className="text-gray-400 hover:text-steel-blue transition-colors duration-200"
-              >
-                Legal Disclaimer
+              <Link href="/sitemap" className="text-gray-400 hover:text-steel-blue transition-colors duration-200">
+                Sitemap
               </Link>
             </motion.div>
           </div>

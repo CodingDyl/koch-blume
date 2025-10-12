@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button, ThemeAnimatedButton } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowUpRight, FileText, Scale, Shield, BookOpen, Gavel, Users, ChevronDown } from "lucide-react";
 
@@ -34,7 +34,7 @@ export default function Hero() {
 
       {/* Main Content - Left/Right Layout */}
       <div className="relative z-10 flex-1 flex items-center pt-20">
-        <div className="w-full max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Left Section - Social Proof & Headline */}
@@ -100,13 +100,14 @@ export default function Hero() {
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="flex flex-col items-end space-y-6"
               >
-                <Button 
-                  size="lg" 
-                  className="bg-foreground hover:bg-transparent hover:text-foreground hover:text-xl hover:font-bold text-white text-lg px-8 py-4 hover:border-2 hover:border-foreground hover:cursor-pointer rounded-lg font-medium transition-all duration-200 group"
+                <ThemeAnimatedButton 
+                  size="md"
+                  variant="primary"
+                  className="whitespace-nowrap rounded-xl"
+                  onClick={() => window.location.href = '/contact'}
                 >
                   Get Started Today
-                  <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </Button>
+                </ThemeAnimatedButton>
 
                 {/* Scroll Indicator - Horizontal */}
                 <motion.div

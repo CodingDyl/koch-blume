@@ -207,91 +207,73 @@ export default function AboutPage() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50" ref={containerRef}>
-      {/* Hero Section with Glassmorphism */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-deep-navy via-steel-blue to-deep-navy">
-          <div className="absolute inset-0 bg-[url('/images/background.png')] bg-cover bg-center opacity-20"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60"></div>
-        </div>
-        
-        {/* Floating Elements */}
-        <motion.div
-          style={{ y, opacity }}
-          className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"
-        />
-        <motion.div
-          style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]), opacity }}
-          className="absolute top-40 right-20 w-32 h-32 bg-steel-blue/20 rounded-full blur-2xl"
-        />
-        <motion.div
-          style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]), opacity }}
-          className="absolute bottom-40 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl"
-        />
-
-        <div className="relative z-10 max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero Section */}
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-deep-navy via-steel-blue to-deep-navy">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10 max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="space-y-8"
+            transition={{ duration: 0.8 }}
+            className="text-center text-white"
           >
-            <h1 className="text-5xl lg:text-7xl font-display font-bold text-white leading-tight">
-              About <span className="bg-gradient-to-r from-steel-blue to-cyan-400 bg-clip-text text-transparent">Kochukov & Blume</span>
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 text-white/90 mb-8">
+              <Sparkles className="w-5 h-5 text-yellow-400" />
+              <span className="text-sm font-medium">About Us</span>
+            </div>
+            
+            <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6">
+              About <span className="text-steel-blue">Kochukov & Blume</span>
             </h1>
             
             <p className="text-xl lg:text-2xl text-white/80 max-w-6xl mx-auto leading-relaxed mb-12">
               A sophisticated, professional law firm committed to delivering exceptional legal services with integrity, expertise, and compassion.
             </p>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-8 pt-8"
-            >
-              {[
-                { label: "Years Experience", value: "20+" },
-                { label: "Cases Won", value: "500+" },
-                { label: "Happy Clients", value: "1000+" },
-                { label: "Awards Won", value: "15+" }
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl lg:text-4xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-white/70">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Scroll Indicator */}
-            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer">
+                Meet Our Team
+                <Users className="w-5 h-5 ml-2" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/30 text-primary hover:bg-white/10 backdrop-blur-xl px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer">
+                Our Values
+                <Heart className="w-5 h-5 ml-2" />
+              </Button>
+            </div>
           </motion.div>
         </div>
-        <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            >
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {[
+              { label: "Years Experience", value: "20+" },
+              { label: "Cases Won", value: "500+" },
+              { label: "Happy Clients", value: "1000+" },
+              { label: "Awards Won", value: "15+" }
+            ].map((stat, index) => (
               <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
               >
-                <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-1 h-3 bg-white/60 rounded-full mt-2"
-                />
+                <div className="text-3xl lg:text-4xl font-bold text-steel-blue mb-2">{stat.value}</div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
               </motion.div>
-            </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* Firm History & Mission - Modern Cards */}
@@ -576,7 +558,7 @@ export default function AboutPage() {
                       <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
                         <span className="flex items-center space-x-1">
                           <Download className="w-3 h-3" />
-                          <span>{resource.downloads.toLocaleString()} downloads</span>
+                          <span>{resource.downloads.toLocaleString('en-US')} downloads</span>
                         </span>
                         <span className="text-gray-400">{resource.lastUpdated}</span>
                       </div>

@@ -41,7 +41,7 @@ export default function Navbar() {
       }`}
     >
       <div className="w-full px-0">
-        <div className="flex items-center justify-between h-16 lg:h-20 px-4 sm:px-6 lg:px-16">
+        <div className="flex items-center justify-around h-16 lg:h-20 px-4 sm:px-6 lg:px-16">
             <div className="flex items-center space-x-3 group">
             <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative w-10 h-10 lg:w-12 lg:h-12">
