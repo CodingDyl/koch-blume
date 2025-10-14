@@ -90,7 +90,7 @@ export default function Hero() {
                 transition={{ delay: 0.6, duration: 0.8 }}
                 className="text-lg sm:text-xl lg:text-2xl text-gray-100 leading-relaxed"
               >
-                Whether you're facing a business dispute, divorce, or courtroom challenge, we give you the confidence and legal protection you need.
+                Whether you&apos;re facing a business dispute, divorce, or courtroom challenge, we give you the confidence and legal protection you need.
               </motion.p>
 
               {/* CTA Button */}

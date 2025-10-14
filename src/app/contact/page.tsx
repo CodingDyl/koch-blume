@@ -428,7 +428,7 @@ export default function ContactPage() {
               Get in <span className="text-steel-blue">Touch</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Have a question or need legal advice? Send us a message and we'll get back to you within 24 hours.
+              Have a question or need legal advice? Send us a message and we&apos;ll get back to you within 24 hours.
             </p>
           </motion.div>
 
@@ -443,7 +443,7 @@ export default function ContactPage() {
               </div>
               <h3 className="text-2xl font-bold text-deep-navy mb-4">Message Sent Successfully!</h3>
               <p className="text-gray-600 mb-8">
-                Thank you for your message. We'll get back to you within 24 hours.
+                Thank you for your message. We&apos;ll get back to you within 24 hours.
               </p>
               <Button onClick={() => setIsSubmitted(false)} className="bg-steel-blue hover:bg-steel-blue/90 text-white px-8 py-4 rounded-xl font-semibold">
                 Send Another Message
@@ -761,7 +761,7 @@ export default function ContactPage() {
               Ready to Get <span className="text-cyan-400">Started?</span>
             </h2>
             <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-6xl mx-auto leading-relaxed">
-              Don't wait to protect your rights. Contact us today for a consultation and take the first step towards resolving your legal matter.
+              Don&apos;t wait to protect your rights. Contact us today for a consultation and take the first step towards resolving your legal matter.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

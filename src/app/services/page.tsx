@@ -51,10 +51,20 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+interface PracticeArea {
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+  cases: string;
+  successRate: string;
+  features: string[];
+}
+
 export default function ServicesPage() {
   const [currentQuizStep, setCurrentQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState({});
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState<PracticeArea | null>(null);
   const [isQuizComplete, setIsQuizComplete] = useState(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
@@ -115,7 +125,7 @@ export default function ServicesPage() {
     },
     {
       title: "Estate Planning",
-      description: "Comprehensive estate planning to protect your assets and secure your family's future.",
+      description: "Comprehensive estate planning to protect your assets and secure your family&apos;s future.",
       icon: FileText,
       color: "from-indigo-500 to-blue-500",
       cases: "250+ Cases",
@@ -242,7 +252,7 @@ export default function ServicesPage() {
       category: "Family Law",
       client: "Business Executive",
       challenge: "Complex asset division involving multiple properties and business interests",
-      solution: "Negotiated fair settlement protecting client's business interests",
+      solution: "Negotiated fair settlement protecting client&apos;s business interests",
       result: "Settlement reached without court proceedings",
       outcome: "Client retained business control while ensuring fair property division",
       icon: Heart,
@@ -298,7 +308,7 @@ export default function ServicesPage() {
     }
   ];
 
-  const handleQuizAnswer = (questionId, answer) => {
+  const handleQuizAnswer = (questionId: number, answer: string) => {
     setQuizAnswers(prev => ({ ...prev, [questionId]: answer }));
     if (currentQuizStep < quizQuestions.length - 1) {
       setCurrentQuizStep(currentQuizStep + 1);
@@ -643,7 +653,7 @@ export default function ServicesPage() {
               Real <span className="text-steel-blue">Case Studies</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              See how we've helped clients achieve successful outcomes in complex legal matters.
+              See how we&apos;ve helped clients achieve successful outcomes in complex legal matters.
             </p>
           </motion.div>
 

@@ -64,8 +64,8 @@ export default function NotFound() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-lg lg:text-xl text-gray-600 mb-8 leading-relaxed max-w-6xl mx-auto"
           >
-            The page you're looking for doesn't exist or has been moved. 
-            Don't worry, our legal team is here to help you find what you need.
+            The page you&apos;re looking for doesn&apos;t exist or has been moved. 
+            Don&apos;t worry, our legal team is here to help you find what you need.
           </motion.p>
 
           {/* Action Buttons */}

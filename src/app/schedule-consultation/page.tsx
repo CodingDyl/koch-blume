@@ -259,7 +259,7 @@ export default function ScheduleConsultationPage() {
             </h1>
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Your consultation has been successfully scheduled. We'll send you a confirmation email with all the details.
+              Your consultation has been successfully scheduled. We&apos;ll send you a confirmation email with all the details.
             </p>
             
             <div className="bg-steel-blue/10 rounded-2xl p-6 mb-8">
@@ -650,7 +650,7 @@ export default function ScheduleConsultationPage() {
                     onChange={handleInputChange}
                     rows={3}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent"
-                    placeholder="Any additional information you'd like us to know..."
+                    placeholder="Any additional information you&apos;d like us to know..."
                   />
                 </div>
               </form>
@@ -799,7 +799,7 @@ export default function ScheduleConsultationPage() {
               Why Choose Our <span className="text-steel-blue">Consultations?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Experience the difference of working with South Africa's premier legal team.
+              Experience the difference of working with South Africa&apos;s premier legal team.
             </p>
           </motion.div>
 

@@ -42,9 +42,20 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+interface LegalResource {
+  title: string;
+  category: string;
+  description: string;
+  downloads: number;
+  lastUpdated: string;
+  icon: React.ComponentType<{ className?: string }>;
+  files?: string[];
+  color: string;
+}
+
 export default function AboutPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedResource, setSelectedResource] = useState<any>(null);
+  const [selectedResource, setSelectedResource] = useState<LegalResource | null>(null);
   const [activeTab, setActiveTab] = useState("attorneys");
   
   const containerRef = useRef<HTMLDivElement>(null);
@@ -306,7 +317,7 @@ export default function AboutPage() {
                 <div className="space-y-6">
                   <p className="text-lg text-gray-600 leading-relaxed">
                     Founded in 2020, Kochukov & Blume has grown from a small practice in Rosebank, Johannesburg, 
-                    to one of South Africa's most respected law firms. Our journey began with a simple mission: 
+                    to one of South Africa&apos;s most respected law firms. Our journey began with a simple mission: 
                     to provide accessible, high-quality legal services to individuals and businesses across the country.
                   </p>
                   

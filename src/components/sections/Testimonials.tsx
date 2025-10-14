@@ -29,7 +29,7 @@ export default function Testimonials() {
       company: "Local Manufacturing",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "When I was facing a wrongful termination lawsuit, I didn't know where to turn. This firm not only won my case but treated me with dignity and respect throughout the entire process.",
+      text: "When I was facing a wrongful termination lawsuit, I didn&apos;t know where to turn. This firm not only won my case but treated me with dignity and respect throughout the entire process.",
       case: "Employment Law",
       result: "Complete Victory",
       duration: "3 months",
@@ -55,7 +55,7 @@ export default function Testimonials() {
       company: "Private Client",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "Going through a divorce is never easy, but having the right legal team made all the difference. They were compassionate yet aggressive in protecting my children's best interests.",
+      text: "Going through a divorce is never easy, but having the right legal team made all the difference. They were compassionate yet aggressive in protecting my children&apos;s best interests.",
       case: "Family Law",
       result: "Favorable Settlement",
       duration: "8 months",
@@ -68,7 +68,7 @@ export default function Testimonials() {
       company: "Startup Ventures",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "The business litigation team is incredible. They turned what seemed like a losing case into a complete victory. I can't recommend them highly enough.",
+      text: "The business litigation team is incredible. They turned what seemed like a losing case into a complete victory. I can&apos;t recommend them highly enough.",
       case: "Business Litigation",
       result: "R5M+ Recovery",
       duration: "12 months",
@@ -117,8 +117,8 @@ export default function Testimonials() {
           </h2>
           
           <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed mb-12">
-            Don't just take our word for it. Hear from the clients whose lives and businesses 
-            we've helped transform through expert legal representation and exceptional results.
+            Don&apos;t just take our word for it. Hear from the clients whose lives and businesses 
+            we&apos;ve helped transform through expert legal representation and exceptional results.
           </p>
 
           {/* Stats Grid */}
@@ -167,7 +167,7 @@ export default function Testimonials() {
                 </div>
                 
                 <blockquote className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8">
-                  "{testimonials[currentTestimonial].text}"
+                  &ldquo;{testimonials[currentTestimonial].text}&rdquo;
                 </blockquote>
 
                 <div className="flex items-center space-x-1 mb-6">
