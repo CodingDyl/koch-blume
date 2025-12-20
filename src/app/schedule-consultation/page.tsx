@@ -90,9 +90,8 @@ export default function ScheduleConsultationPage() {
     {
       type: 'in-person',
       title: 'In-Person Consultation',
-      description: 'Meet with our attorneys at our Rosebank office',
+      description: 'Meet with our attorneys at our Sandton office',
       duration: '1 hour',
-      price: 'R1,500',
       icon: Building,
       color: 'from-blue-500 to-cyan-500',
       benefits: ['Face-to-face interaction', 'Document review', 'Immediate feedback', 'Professional setting']
@@ -102,7 +101,6 @@ export default function ScheduleConsultationPage() {
       title: 'Video Consultation',
       description: 'Secure video call from anywhere',
       duration: '1 hour',
-      price: 'R1,200',
       icon: Users,
       color: 'from-green-500 to-emerald-500',
       benefits: ['Convenient location', 'Screen sharing', 'Recording available', 'Time efficient']
@@ -112,10 +110,9 @@ export default function ScheduleConsultationPage() {
       title: 'Phone Consultation',
       description: 'Quick phone call for urgent matters',
       duration: '30 minutes',
-      price: 'R800',
       icon: Phone,
       color: 'from-purple-500 to-violet-500',
-      benefits: ['Immediate availability', 'Quick assessment', 'Cost effective', 'Flexible timing']
+      benefits: ['Immediate availability', 'Quick assessment', 'Flexible timing']
     }
   ];
 
@@ -414,9 +411,8 @@ export default function ScheduleConsultationPage() {
                       <h3 className="text-xl font-bold text-deep-navy mb-2">{type.title}</h3>
                       <p className="text-gray-600 mb-4">{type.description}</p>
                       
-                      <div className="flex items-center justify-between mb-4">
+                      <div className="mb-4">
                         <span className="text-sm text-gray-500">Duration: {type.duration}</span>
-                        <span className="text-lg font-bold text-steel-blue">{type.price}</span>
                       </div>
                       
                       <div className="space-y-1">
@@ -695,10 +691,6 @@ export default function ScheduleConsultationPage() {
                       <div className="flex justify-between">
                         <span className="text-gray-600">Duration:</span>
                         <span className="font-semibold text-steel-blue">{getSelectedConsultation()?.duration}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Price:</span>
-                        <span className="font-semibold text-steel-blue">{getSelectedConsultation()?.price}</span>
                       </div>
                     </div>
                   </div>

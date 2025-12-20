@@ -1,325 +1,178 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight, Award, CheckCircle, Users, TrendingUp, Shield, Heart, Building, Scale } from "lucide-react";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function Testimonials() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const testimonials = [
     {
       name: "Sarah Johnson",
-      role: "CEO, TechStart Inc.",
-      company: "Fortune 500 Technology",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "Kochukov & Blume helped us navigate a complex merger that seemed impossible. Their expertise and attention to detail saved us millions and protected our interests every step of the way.",
-      case: "Corporate Merger",
-      result: "R50M+ Saved",
-      duration: "6 months",
-      category: "Corporate Law",
-      highlight: "Fortune 500 Experience"
+      text: "Kochukov & Blume helped us navigate a complex merger that seemed impossible. Their expertise and attention to detail saved us millions and protected our interests every step of the way."
     },
     {
       name: "Michael Chen",
-      role: "Small Business Owner",
-      company: "Local Manufacturing",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "When I was facing a wrongful termination lawsuit, I didn&apos;t know where to turn. This firm not only won my case but treated me with dignity and respect throughout the entire process.",
-      case: "Employment Law",
-      result: "Complete Victory",
-      duration: "3 months",
-      category: "Employment Law",
-      highlight: "Wrongful Termination"
+      text: "When I was facing a wrongful termination lawsuit, I didn't know where to turn. This firm not only won my case but treated me with dignity and respect throughout the entire process."
     },
     {
       name: "Emily Rodriguez",
-      role: "Real Estate Developer",
-      company: "Commercial Properties Ltd",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "Their real estate team is simply outstanding. They handled our multi-million dollar property acquisition flawlessly and caught issues that could have cost us dearly.",
-      case: "Real Estate Transaction",
-      result: "R25M+ Transaction",
-      duration: "4 months",
-      category: "Real Estate Law",
-      highlight: "Commercial Expert"
+      text: "Their real estate team is simply outstanding. They handled our multi-million dollar property acquisition flawlessly and caught issues that could have cost us dearly."
     },
     {
       name: "David Thompson",
-      role: "Family Man",
-      company: "Private Client",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "Going through a divorce is never easy, but having the right legal team made all the difference. They were compassionate yet aggressive in protecting my children&apos;s best interests.",
-      case: "Family Law",
-      result: "Favorable Settlement",
-      duration: "8 months",
-      category: "Family Law",
-      highlight: "Child Custody Expert"
+      text: "Going through a divorce is never easy, but having the right legal team made all the difference. They were compassionate yet aggressive in protecting my children's best interests."
     },
     {
       name: "Lisa Park",
-      role: "Entrepreneur",
-      company: "Startup Ventures",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "The business litigation team is incredible. They turned what seemed like a losing case into a complete victory. I can&apos;t recommend them highly enough.",
-      case: "Business Litigation",
-      result: "R5M+ Recovery",
-      duration: "12 months",
-      category: "Business Litigation",
-      highlight: "Complex Commercial"
+      text: "The business litigation team is incredible. They turned what seemed like a losing case into a complete victory. I can't recommend them highly enough."
     }
   ];
 
-  const stats = [
-    { icon: Users, label: "Happy Clients", value: "500+", color: "text-blue-500" },
-    { icon: Award, label: "Cases Won", value: "98%", color: "text-green-500" },
-    { icon: Star, label: "Client Rating", value: "4.9/5", color: "text-yellow-500" },
-    { icon: TrendingUp, label: "Success Rate", value: "95%", color: "text-purple-500" }
-  ];
-
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
-  const prevTestimonial = () => {
+  const prevTestimonial = useCallback(() => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, [testimonials.length]);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (isAutoPlaying) {
+      const interval = setInterval(() => {
+        nextTestimonial();
+      }, 6000); // Change testimonial every 6 seconds
+      return () => clearInterval(interval);
+    }
+  }, [isAutoPlaying, nextTestimonial]);
+
+  const handleManualNavigation = (callback: () => void) => {
+    setIsAutoPlaying(false);
+    callback();
+    // Resume auto-play after 10 seconds of inactivity
+    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   return (
-    <section className="py-32 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
-      {/* Background Elements */}
+    <section className="py-20 md:py-32 lg:py-40 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" id="testimonials">
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0 bg-[url('/images/background.png')] bg-cover bg-center opacity-5"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
       
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header - Minimal */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16 md:mb-20 lg:mb-24"
         >
-          <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Heart className="w-4 h-4" />
-            <span>Client Testimonials</span>
-          </div>
-          
-          <h2 className="text-4xl lg:text-6xl font-display font-bold text-deep-navy mb-6">
-            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-steel-blue to-cyan-500">Clients Say</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-deep-navy tracking-tight">
+            Client Testimonials
           </h2>
-          
-          <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed mb-12">
-            Don&apos;t just take our word for it. Hear from the clients whose lives and businesses 
-            we&apos;ve helped transform through expert legal representation and exceptional results.
-          </p>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className={`w-12 h-12 ${stat.color} bg-opacity-10 rounded-2xl flex items-center justify-center mx-auto mb-3`}>
-                    <Icon className={`w-6 h-6 ${stat.color}`} />
-                  </div>
-                  <div className="text-2xl font-bold text-deep-navy mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
-                </motion.div>
-              );
-            })}
-          </div>
         </motion.div>
 
-        {/* Testimonial Carousel */}
-        <div className="relative mb-16">
+        {/* Testimonial Display */}
+        <div className="relative max-w-5xl mx-auto">
+          
+          {/* Quote Icon - Subtle */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="absolute -top-4 left-0 md:-left-8 z-0"
+          >
+            <Quote className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 text-steel-blue/10" />
+          </motion.div>
+
+          {/* Testimonial Content */}
           <motion.div
             key={currentTestimonial}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative z-10"
           >
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left Side - Testimonial Content */}
-              <div>
-                <div className="flex items-center space-x-2 mb-6">
-                  <Quote className="w-8 h-8 text-steel-blue" />
-                  <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-3 py-1 rounded-full text-xs font-medium">
-                    <Scale className="w-3 h-3" />
-                    <span>{testimonials[currentTestimonial].category}</span>
-                  </div>
-                </div>
-                
-                <blockquote className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8">
-                  &ldquo;{testimonials[currentTestimonial].text}&rdquo;
-                </blockquote>
+            {/* Testimonial Text */}
+            <div className="mb-12 md:mb-16">
+              <p className="text-xl md:text-2xl lg:text-3xl text-deep-navy/90 font-light leading-relaxed md:leading-relaxed lg:leading-relaxed tracking-tight">
+                {testimonials[currentTestimonial].text}
+              </p>
+            </div>
 
-                <div className="flex items-center space-x-1 mb-6">
-                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-steel-blue to-cyan-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                    {testimonials[currentTestimonial].name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-deep-navy mb-1">
-                      {testimonials[currentTestimonial].name}
-                    </h4>
-                    <p className="text-gray-600 font-medium">
-                      {testimonials[currentTestimonial].role}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {testimonials[currentTestimonial].company}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Side - Case Details */}
-              <div className="space-y-6">
-                <div className="bg-gradient-to-br from-steel-blue to-cyan-500 rounded-2xl p-8 text-white">
-                  <h3 className="text-2xl font-display font-bold mb-6">
-                    Case Results
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-center justify-between">
-                      <span className="text-white/80">Case Type</span>
-                      <span className="font-semibold">{testimonials[currentTestimonial].case}</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className="text-white/80">Result</span>
-                      <span className="font-bold text-yellow-400">{testimonials[currentTestimonial].result}</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className="text-white/80">Duration</span>
-                      <span className="font-semibold">{testimonials[currentTestimonial].duration}</span>
-                    </div>
-                    
-                    <div className="pt-4 border-t border-white/20">
-                      <div className="inline-flex items-center space-x-2 bg-white/20 rounded-full px-4 py-2">
-                        <Award className="w-4 h-4" />
-                        <span className="text-sm font-medium">{testimonials[currentTestimonial].highlight}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Elements */}
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-4 -right-4 bg-white/20 backdrop-blur-xl rounded-2xl p-4 border border-white/30"
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-steel-blue">5★</div>
-                    <div className="text-xs text-gray-600">Rating</div>
-                  </div>
-                </motion.div>
-              </div>
+            {/* Client Name with Divider */}
+            <div className="flex items-center space-x-6">
+              <div className="h-px w-12 md:w-16 bg-steel-blue"></div>
+              <h3 className="text-base md:text-lg lg:text-xl font-medium text-deep-navy tracking-wide">
+                {testimonials[currentTestimonial].name}
+              </h3>
             </div>
           </motion.div>
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-xl rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 border border-white/20"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-          </button>
-          
-          <button
-            onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-xl rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 border border-white/20"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
-          </button>
-        </div>
-
-        {/* Testimonial Indicators */}
-        <div className="flex justify-center space-x-3 mb-16">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentTestimonial(index)}
-              className={`h-3 rounded-full transition-all duration-200 ${
-                index === currentTestimonial 
-                  ? 'bg-steel-blue w-8' 
-                  : 'bg-gray-300 hover:bg-gray-400 w-3'
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-deep-navy via-steel-blue to-deep-navy rounded-3xl p-12 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/images/background.png')] bg-cover bg-center opacity-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+          {/* Navigation Buttons - Minimal Design */}
+          <div className="flex items-center justify-between mt-12 md:mt-16 lg:mt-20">
             
-            <div className="relative z-10">
-              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 text-white/90 mb-8">
-                <Shield className="w-5 h-5 text-yellow-400" />
-                <span className="text-sm font-medium">Trusted & Recognized</span>
+            {/* Previous Button */}
+            <button
+              onClick={() => handleManualNavigation(prevTestimonial)}
+              className="group flex items-center space-x-2 text-deep-navy/60 hover:text-deep-navy transition-colors duration-300"
+              aria-label="Previous testimonial"
+            >
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-deep-navy/20 group-hover:border-steel-blue transition-colors duration-300">
+                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
               </div>
-              
-              <h3 className="text-3xl lg:text-4xl font-display font-bold mb-6">
-                Recognized by <span className="text-cyan-400">Leading Organizations</span>
-              </h3>
-              
-              <p className="text-lg text-white/80 mb-12 max-w-6xl mx-auto">
-                Our commitment to excellence has earned recognition from industry leaders and professional organizations.
-              </p>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                {[
-                  { name: "Legal 500", rating: "Recommended", icon: Award },
-                  { name: "BBB", rating: "A+ Rating", icon: Star },
-                  { name: "Avvo", rating: "10.0 Rating", icon: CheckCircle },
-                  { name: "Martindale", rating: "AV Preeminent", icon: Building }
-                ].map((org, index) => {
-                  const Icon = org.icon;
-                  return (
-                    <div key={org.name} className="text-center">
-                      <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <Icon className="w-8 h-8 text-yellow-400" />
-                      </div>
-                      <div className="text-lg font-semibold mb-1">{org.name}</div>
-                      <div className="text-sm text-white/70">{org.rating}</div>
-                    </div>
-                  );
-                })}
-              </div>
+              <span className="hidden sm:inline text-sm md:text-base font-medium">Previous</span>
+            </button>
+
+            {/* Dot Indicators */}
+            <div className="flex items-center space-x-2 md:space-x-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleManualNavigation(() => setCurrentTestimonial(index))}
+                  className="group"
+                  aria-label={`Go to testimonial ${index + 1}`}
+                >
+                  <div
+                    className={`transition-all duration-300 ${
+                      index === currentTestimonial
+                        ? "w-8 md:w-10 h-1 bg-steel-blue"
+                        : "w-1 h-1 bg-deep-navy/20 group-hover:bg-deep-navy/40"
+                    }`}
+                  />
+                </button>
+              ))}
             </div>
+
+            {/* Next Button */}
+            <button
+              onClick={() => handleManualNavigation(nextTestimonial)}
+              className="group flex items-center space-x-2 text-deep-navy/60 hover:text-deep-navy transition-colors duration-300"
+              aria-label="Next testimonial"
+            >
+              <span className="hidden sm:inline text-sm md:text-base font-medium">Next</span>
+              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-deep-navy/20 group-hover:border-steel-blue transition-colors duration-300">
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+            </button>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Subtle Bottom Border */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-20 md:mt-24 lg:mt-32 h-px bg-gradient-to-r from-transparent via-steel-blue/20 to-transparent origin-center"
+        />
       </div>
     </section>
   );

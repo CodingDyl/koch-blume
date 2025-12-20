@@ -62,19 +62,19 @@ export default function Footer() {
     {
       icon: Phone,
       label: "Phone",
-      value: "+27 11 123 4567",
-      href: "tel:+27111234567"
+      value: "010 300 0247",
+      href: "tel:0103000247"
     },
     {
       icon: Mail,
       label: "Email",
-      value: "info@kochukovblume.co.za",
-      href: "mailto:info@kochukovblume.co.za"
+      value: "info@kblegal.co.za",
+      href: "mailto:info@kblegal.co.za"
     },
     {
       icon: MapPin,
       label: "Address",
-      value: "Rosebank\nJohannesburg, South Africa"
+      value: "1st Floor, 145 Second St\nSandton"
     },
     {
       icon: Clock,
@@ -124,14 +124,6 @@ export default function Footer() {
               <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <Shield className="w-4 h-4 text-steel-blue" />
                 <span>Licensed & Insured</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Users className="w-4 h-4 text-steel-blue" />
-                <span>500+ Cases Won</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Scale className="w-4 h-4 text-steel-blue" />
-                <span>20+ Years Experience</span>
               </div>
             </div>
 

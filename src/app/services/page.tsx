@@ -12,12 +12,10 @@ import {
   FileText, 
   Users, 
   Clock, 
-  DollarSign,
   CheckCircle,
   ArrowRight,
   Star,
   Award,
-  TrendingUp,
   Target,
   Zap,
   BookOpen,
@@ -29,14 +27,13 @@ import {
   Plus,
   Minus,
   ExternalLink,
-  Download,
   Play,
   Pause,
   Volume2,
+  Briefcase,
   Sparkles,
   Crown,
   Globe,
-  Briefcase,
   Handshake,
   Eye,
   Lock,
@@ -56,8 +53,6 @@ interface PracticeArea {
   description: string;
   icon: React.ComponentType<{ className?: string }>;
   color: string;
-  cases: string;
-  successRate: string;
   features: string[];
 }
 
@@ -83,8 +78,6 @@ export default function ServicesPage() {
       description: "Strategic legal counsel for businesses of all sizes, from startups to Fortune 500 companies.",
       icon: Building,
       color: "from-blue-500 to-cyan-500",
-      cases: "200+ Cases",
-      successRate: "95%",
       features: ["Business Formation", "Contract Negotiation", "Mergers & Acquisitions", "Compliance"]
     },
     {
@@ -92,8 +85,6 @@ export default function ServicesPage() {
       description: "Compassionate representation in divorce, custody, and family matters with proven results.",
       icon: Heart,
       color: "from-pink-500 to-rose-500",
-      cases: "150+ Cases",
-      successRate: "98%",
       features: ["Divorce", "Child Custody", "Property Division", "Adoption"]
     },
     {
@@ -101,8 +92,6 @@ export default function ServicesPage() {
       description: "Expert guidance through complex property transactions and real estate disputes.",
       icon: Building,
       color: "from-green-500 to-emerald-500",
-      cases: "300+ Cases",
-      successRate: "97%",
       features: ["Property Transactions", "Title Issues", "Zoning Disputes", "Commercial Leases"]
     },
     {
@@ -110,8 +99,6 @@ export default function ServicesPage() {
       description: "Aggressive defense strategies to protect your rights and secure the best possible outcome.",
       icon: Shield,
       color: "from-purple-500 to-violet-500",
-      cases: "180+ Cases",
-      successRate: "92%",
       features: ["DUI Defense", "White Collar Crimes", "Drug Offenses", "Traffic Violations"]
     },
     {
@@ -119,8 +106,6 @@ export default function ServicesPage() {
       description: "Skilled representation in commercial disputes and complex business litigation matters.",
       icon: Gavel,
       color: "from-orange-500 to-red-500",
-      cases: "120+ Cases",
-      successRate: "94%",
       features: ["Contract Disputes", "Partnership Issues", "Employment Law", "Intellectual Property"]
     },
     {
@@ -128,8 +113,6 @@ export default function ServicesPage() {
       description: "Comprehensive estate planning to protect your assets and secure your family&apos;s future.",
       icon: FileText,
       color: "from-indigo-500 to-blue-500",
-      cases: "250+ Cases",
-      successRate: "99%",
       features: ["Wills & Trusts", "Power of Attorney", "Estate Administration", "Tax Planning"]
     }
   ];
@@ -178,7 +161,6 @@ export default function ServicesPage() {
       description: "Comprehensive legal support for businesses at every stage of growth.",
       icon: Building,
       color: "from-blue-500 to-cyan-500",
-      pricing: "From R2,500/hour",
       duration: "1-6 months",
       features: [
         "Business formation and structuring",
@@ -208,7 +190,6 @@ export default function ServicesPage() {
       description: "Compassionate legal representation for all family matters.",
       icon: Heart,
       color: "from-pink-500 to-rose-500",
-      pricing: "From R1,800/hour",
       duration: "3-12 months",
       features: [
         "Divorce and separation",
@@ -271,42 +252,6 @@ export default function ServicesPage() {
     }
   ];
 
-  // Fee structure
-  const feeStructure = [
-    {
-      type: "Hourly Rates",
-      description: "Standard billing for ongoing legal work",
-      rates: [
-        { service: "Senior Partner", rate: "R2,500/hour" },
-        { service: "Associate Attorney", rate: "R1,800/hour" },
-        { service: "Paralegal", rate: "R800/hour" }
-      ],
-      icon: Clock,
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      type: "Fixed Fees",
-      description: "Predictable pricing for specific services",
-      rates: [
-        { service: "Business Formation", rate: "R15,000" },
-        { service: "Will & Testament", rate: "R3,500" },
-        { service: "Contract Review", rate: "R2,500" }
-      ],
-      icon: DollarSign,
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      type: "Contingency",
-      description: "No win, no fee arrangements",
-      rates: [
-        { service: "Personal Injury", rate: "30% of settlement" },
-        { service: "Employment Disputes", rate: "25% of award" },
-        { service: "Debt Collection", rate: "35% of recovered amount" }
-      ],
-      icon: TrendingUp,
-      color: "from-purple-500 to-violet-500"
-    }
-  ];
 
   const handleQuizAnswer = (questionId: number, answer: string) => {
     setQuizAnswers(prev => ({ ...prev, [questionId]: answer }));
@@ -349,14 +294,10 @@ export default function ServicesPage() {
               we provide expert representation with proven results.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button size="lg" className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer">
                 Get Legal Assessment
                 <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-primary hover:bg-white/10 backdrop-blur-xl px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer">
-                View Our Fees
-                <DollarSign className="w-5 h-5 ml-2" />
               </Button>
             </div>
           </motion.div>
@@ -412,17 +353,6 @@ export default function ServicesPage() {
                       <p className="text-gray-600 leading-relaxed mb-6">
                         {area.description}
                       </p>
-                      
-                      <div className="space-y-3 mb-6">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-500">Cases Handled</span>
-                          <span className="font-semibold text-steel-blue">{area.cases}</span>
-                        </div>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-gray-500">Success Rate</span>
-                          <span className="font-semibold text-green-600">{area.successRate}</span>
-                        </div>
-                      </div>
                       
                       <div className="space-y-2">
                         {area.features.slice(0, 3).map((feature, idx) => (
@@ -554,7 +484,7 @@ export default function ServicesPage() {
               Detailed <span className="text-steel-blue">Service Descriptions</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Comprehensive legal services with transparent pricing and clear processes.
+              Comprehensive legal services with clear processes and exceptional results.
             </p>
           </motion.div>
 
@@ -587,13 +517,9 @@ export default function ServicesPage() {
                           {service.description}
                         </p>
                         
-                        <div className="grid grid-cols-2 gap-4 mb-6">
+                        <div className="mb-6">
                           <div className="bg-gray-50 rounded-lg p-4">
-                            <div className="text-sm text-gray-500 mb-1">Pricing</div>
-                            <div className="font-semibold text-steel-blue">{service.pricing}</div>
-                          </div>
-                          <div className="bg-gray-50 rounded-lg p-4">
-                            <div className="text-sm text-gray-500 mb-1">Duration</div>
+                            <div className="text-sm text-gray-500 mb-1">Typical Duration</div>
                             <div className="font-semibold text-steel-blue">{service.duration}</div>
                           </div>
                         </div>
@@ -713,7 +639,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Fee Structure Information */}
+      {/* Service Structure Information */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -724,48 +650,124 @@ export default function ServicesPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <DollarSign className="w-4 h-4" />
-              <span>Pricing</span>
+              <Briefcase className="w-4 h-4" />
+              <span>Our Services</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Transparent <span className="text-steel-blue">Fee Structure</span>
+              Service <span className="text-steel-blue">Structure</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Clear, upfront pricing with no hidden fees. We believe in transparent billing practices.
+              Flexible legal services tailored to your needs. Contact us for detailed pricing information.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {feeStructure.map((fee, index) => {
-              const Icon = fee.icon;
-              return (
-                <motion.div
-                  key={fee.type}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 p-8"
-                >
-                  <div className={`w-16 h-16 bg-gradient-to-r ${fee.color} rounded-2xl flex items-center justify-center mb-6`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-deep-navy mb-3">{fee.type}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{fee.description}</p>
-                  
-                  <div className="space-y-3">
-                    {fee.rates.map((rate, idx) => (
-                      <div key={idx} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
-                        <span className="text-gray-600">{rate.service}</span>
-                        <span className="font-semibold text-steel-blue">{rate.rate}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 p-8"
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                <Clock className="w-8 h-8 text-white" />
+              </div>
+              
+              <h3 className="text-xl font-bold text-deep-navy mb-3">Hourly Rates</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">Standard billing for ongoing legal work</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center py-2 border-b border-gray-100">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Senior Partner</span>
+                </div>
+                <div className="flex items-center py-2 border-b border-gray-100">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Associate Attorney</span>
+                </div>
+                <div className="flex items-center py-2">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Paralegal</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 p-8"
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                <FileText className="w-8 h-8 text-white" />
+              </div>
+              
+              <h3 className="text-xl font-bold text-deep-navy mb-3">Fixed Fees</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">Predictable pricing for specific services</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center py-2 border-b border-gray-100">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Business Formation</span>
+                </div>
+                <div className="flex items-center py-2 border-b border-gray-100">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Will & Testament</span>
+                </div>
+                <div className="flex items-center py-2">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Contract Review</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 p-8"
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
+                <Award className="w-8 h-8 text-white" />
+              </div>
+              
+              <h3 className="text-xl font-bold text-deep-navy mb-3">Contingency</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">Success-based arrangements</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center py-2 border-b border-gray-100">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Personal Injury</span>
+                </div>
+                <div className="flex items-center py-2 border-b border-gray-100">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Employment Disputes</span>
+                </div>
+                <div className="flex items-center py-2">
+                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Business Litigation</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-600 text-lg mb-6">
+              For detailed pricing and to discuss which service structure best fits your needs
+            </p>
+            <Button size="lg" className="bg-steel-blue hover:bg-steel-blue/90 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer">
+              Contact Us for Pricing
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -786,14 +788,10 @@ export default function ServicesPage() {
               Contact us today for a consultation and discover how our experienced team can help you achieve your legal goals.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex justify-center">
               <Button size="lg" className="bg-white text-deep-navy hover:bg-white/90 px-8 py-5 rounded-2xl font-semibold text-lg group hover:cursor-pointer">
                 Schedule Consultation
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-blue-500 hover:bg-white/10 backdrop-blur-xl px-8 py-5 rounded-2xl font-semibold text-lg group hover:cursor-pointer">
-                Download Fee Guide
-                <Download className="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform" />
               </Button>
             </div>
           </motion.div>

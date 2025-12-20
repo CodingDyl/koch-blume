@@ -13,67 +13,43 @@ export default function AreaOfExpertise() {
       icon: Scale,
       title: "Corporate Law",
       description: "Strategic legal counsel for businesses of all sizes, from startups to Fortune 500 companies.",
-      cases: "200+ Cases",
-      successRate: "95%",
-      experience: "15+ Years",
       color: "from-blue-500 to-blue-600",
-      features: ["M&A Transactions", "Corporate Governance", "Compliance", "Contract Negotiation"],
-      highlight: "Fortune 500 Experience"
+      features: ["M&A Transactions", "Corporate Governance", "Compliance", "Contract Negotiation"]
     },
     {
       icon: Heart,
       title: "Family Law",
       description: "Compassionate representation in divorce, custody, and family matters with proven results.",
-      cases: "150+ Cases",
-      successRate: "98%",
-      experience: "12+ Years",
       color: "from-pink-500 to-pink-600",
-      features: ["Divorce & Separation", "Child Custody", "Property Division", "Mediation"],
-      highlight: "Award-Winning Mediator"
+      features: ["Divorce & Separation", "Child Custody", "Property Division", "Mediation"]
     },
     {
       icon: Building2,
       title: "Real Estate Law",
       description: "Expert guidance through complex property transactions and real estate disputes.",
-      cases: "300+ Cases",
-      successRate: "92%",
-      experience: "18+ Years",
       color: "from-green-500 to-green-600",
-      features: ["Property Transactions", "Commercial Leases", "Zoning Issues", "Title Disputes"],
-      highlight: "Commercial Real Estate Expert"
+      features: ["Property Transactions", "Commercial Leases", "Zoning Issues", "Title Disputes"]
     },
     {
       icon: Shield,
       title: "Criminal Defense",
       description: "Aggressive defense strategies to protect your rights and secure the best possible outcome.",
-      cases: "180+ Cases",
-      successRate: "88%",
-      experience: "14+ Years",
       color: "from-purple-500 to-purple-600",
-      features: ["DUI Defense", "White Collar Crime", "Drug Offenses", "Appeals"],
-      highlight: "Former Prosecutor"
+      features: ["DUI Defense", "White Collar Crime", "Drug Offenses", "Appeals"]
     },
     {
       icon: Briefcase,
       title: "Business Litigation",
       description: "Skilled representation in commercial disputes and complex business litigation matters.",
-      cases: "120+ Cases",
-      successRate: "90%",
-      experience: "16+ Years",
       color: "from-orange-500 to-orange-600",
-      features: ["Contract Disputes", "Partnership Issues", "Employment Law", "IP Litigation"],
-      highlight: "Complex Commercial Cases"
+      features: ["Contract Disputes", "Partnership Issues", "Employment Law", "IP Litigation"]
     },
     {
       icon: FileText,
       title: "Estate Planning",
       description: "Comprehensive estate planning to protect your assets and secure your family's future.",
-      cases: "250+ Cases",
-      successRate: "96%",
-      experience: "13+ Years",
       color: "from-indigo-500 to-indigo-600",
-      features: ["Wills & Trusts", "Tax Planning", "Asset Protection", "Probate"],
-      highlight: "Tax Law Specialist"
+      features: ["Wills & Trusts", "Tax Planning", "Asset Protection", "Probate"]
     }
   ];
 
@@ -101,26 +77,10 @@ export default function AreaOfExpertise() {
             Areas of <span className="text-transparent bg-clip-text bg-gradient-to-r from-steel-blue to-cyan-500">Expertise</span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed mb-12">
+          <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
             Our experienced attorneys specialize in multiple practice areas, providing comprehensive legal solutions 
-            tailored to your unique needs with proven results and exceptional client satisfaction.
+            tailored to your unique needs.
           </p>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center gap-8 mb-16">
-            <div className="flex items-center space-x-2">
-              <Award className="w-5 h-5 text-yellow-500" />
-              <span className="text-gray-700 font-medium">Legal 500 Recommended</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Star className="w-5 h-5 text-yellow-500" />
-              <span className="text-gray-700 font-medium">4.9/5 Client Rating</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span className="text-gray-700 font-medium">500+ Cases Won</span>
-            </div>
-          </div>
         </motion.div>
 
         {/* Expertise Grid */}
@@ -137,26 +97,18 @@ export default function AreaOfExpertise() {
                 className="group"
               >
                 <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 h-full border border-white/20 group-hover:border-steel-blue/30 group-hover:-translate-y-2">
-                  {/* Header with Icon and Stats */}
-                  <div className="flex items-start justify-between mb-6">
+                  {/* Header with Icon */}
+                  <div className="mb-6">
                     <div className={`w-16 h-16 bg-gradient-to-r ${area.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-steel-blue">{area.successRate}</div>
-                      <div className="text-xs text-gray-500">Success Rate</div>
-                    </div>
                   </div>
 
-                  {/* Title and Highlight */}
+                  {/* Title */}
                   <div className="mb-4">
-                    <h3 className="text-2xl font-display font-bold text-deep-navy group-hover:text-steel-blue transition-colors duration-300 mb-2">
+                    <h3 className="text-2xl font-display font-bold text-deep-navy group-hover:text-steel-blue transition-colors duration-300">
                       {area.title}
                     </h3>
-                    <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-3 py-1 rounded-full text-xs font-medium">
-                      <Zap className="w-3 h-3" />
-                      <span>{area.highlight}</span>
-                    </div>
                   </div>
                   
                   {/* Description */}
@@ -166,7 +118,7 @@ export default function AreaOfExpertise() {
 
                   {/* Features */}
                   <div className="space-y-2 mb-6">
-                    {area.features.slice(0, 3).map((feature, idx) => (
+                    {area.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
                         <span className="text-sm text-gray-600">{feature}</span>
@@ -174,18 +126,8 @@ export default function AreaOfExpertise() {
                     ))}
                   </div>
 
-                  {/* Stats and CTA */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div className="flex space-x-4 text-sm text-gray-500">
-                      <span className="flex items-center space-x-1">
-                        <Clock className="w-3 h-3" />
-                        <span>{area.experience}</span>
-                      </span>
-                      <span className="flex items-center space-x-1">
-                        <Target className="w-3 h-3" />
-                        <span>{area.cases}</span>
-                      </span>
-                    </div>
+                  {/* CTA Arrow */}
+                  <div className="flex justify-end pt-4 border-t border-gray-100">
                     <motion.div
                       className="text-steel-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       whileHover={{ x: 4 }}

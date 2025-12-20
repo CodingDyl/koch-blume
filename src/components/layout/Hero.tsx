@@ -37,38 +37,18 @@ export default function Hero() {
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
-            {/* Left Section - Social Proof & Headline */}
+            {/* Left Section - Headline */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
               className="space-y-8"
             >
-              {/* Social Proof */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="space-y-4"
-              >
-                <div className="flex items-center gap-6 text-white">
-                  <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-foreground">25</div>
-                    <div className="text-sm lg:text-base text-gray-200">Years Combined Experience</div>
-                  </div>
-                  <div className="w-px h-12 bg-white/30"></div>
-                  <div className="text-center">
-                    <div className="text-3xl lg:text-4xl font-bold text-foreground">500+</div>
-                    <div className="text-sm lg:text-base text-gray-200">Cases Won</div>
-                  </div>
-                </div>
-              </motion.div>
-
               {/* Main Headline */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display text-white leading-tight"
               >
                 Tired of <br /> Feeling Powerless?<br />

@@ -145,21 +145,21 @@ export default function Error({ error, reset }: ErrorPageProps) {
                     <Phone className="w-5 h-5 text-steel-blue flex-shrink-0" />
                     <div>
                       <p className="font-medium">Phone</p>
-                      <p className="text-sm">+27 11 123 4567</p>
+                      <p className="text-sm">010 300 0247</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-700">
                     <Mail className="w-5 h-5 text-steel-blue flex-shrink-0" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-sm">info@kochukovblume.co.za</p>
+                      <p className="text-sm">info@kblegal.co.za</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-700">
                     <MapPin className="w-5 h-5 text-steel-blue flex-shrink-0" />
                     <div>
                       <p className="font-medium">Office</p>
-                      <p className="text-sm">Rosebank, Johannesburg</p>
+                      <p className="text-sm">1st Floor, 145 Second St, Sandton</p>
                     </div>
                   </div>
                 </div>

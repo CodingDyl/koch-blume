@@ -173,15 +173,15 @@ export default function NotFound() {
             <div className="grid sm:grid-cols-3 gap-4 text-sm">
               <div className="flex items-center justify-center space-x-2 text-gray-700">
                 <Phone className="w-4 h-4 text-steel-blue" />
-                <span>+27 11 123 4567</span>
+                <span>010 300 0247</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-700">
                 <Mail className="w-4 h-4 text-steel-blue" />
-                <span>info@kochukovblume.co.za</span>
+                <span>info@kblegal.co.za</span>
               </div>
               <div className="flex items-center justify-center space-x-2 text-gray-700">
                 <MapPin className="w-4 h-4 text-steel-blue" />
-                <span>Rosebank, Johannesburg</span>
+                <span>Sandton</span>
               </div>
             </div>
           </motion.div>
