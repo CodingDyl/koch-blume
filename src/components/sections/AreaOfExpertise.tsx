@@ -1,191 +1,175 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Scale, Shield, Building2, Users, FileText, Gavel, Briefcase, Heart, ArrowRight, CheckCircle, Star, Award, Clock, Target, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { Scale, Shield, Building2, Users, FileText, Briefcase, Heart, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function AreaOfExpertise() {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
   const expertiseAreas = [
     {
       icon: Scale,
       title: "Corporate Law",
       description: "Strategic legal counsel for businesses of all sizes, from startups to Fortune 500 companies.",
-      color: "from-blue-500 to-blue-600",
       features: ["M&A Transactions", "Corporate Governance", "Compliance", "Contract Negotiation"]
     },
     {
       icon: Heart,
       title: "Family Law",
       description: "Compassionate representation in divorce, custody, and family matters with proven results.",
-      color: "from-pink-500 to-pink-600",
       features: ["Divorce & Separation", "Child Custody", "Property Division", "Mediation"]
     },
     {
       icon: Building2,
       title: "Real Estate Law",
       description: "Expert guidance through complex property transactions and real estate disputes.",
-      color: "from-green-500 to-green-600",
       features: ["Property Transactions", "Commercial Leases", "Zoning Issues", "Title Disputes"]
     },
     {
       icon: Shield,
       title: "Criminal Defense",
       description: "Aggressive defense strategies to protect your rights and secure the best possible outcome.",
-      color: "from-purple-500 to-purple-600",
       features: ["DUI Defense", "White Collar Crime", "Drug Offenses", "Appeals"]
     },
     {
       icon: Briefcase,
       title: "Business Litigation",
       description: "Skilled representation in commercial disputes and complex business litigation matters.",
-      color: "from-orange-500 to-orange-600",
       features: ["Contract Disputes", "Partnership Issues", "Employment Law", "IP Litigation"]
     },
     {
       icon: FileText,
       title: "Estate Planning",
       description: "Comprehensive estate planning to protect your assets and secure your family's future.",
-      color: "from-indigo-500 to-indigo-600",
       features: ["Wills & Trusts", "Tax Planning", "Asset Protection", "Probate"]
     }
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
-      {/* Background Elements */}
+    <section className="py-20 md:py-28 lg:py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0 bg-[url('/images/background.png')] bg-cover bg-center opacity-5"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
       
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header - Minimal & Clean */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16 md:mb-20"
         >
-          <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Target className="w-4 h-4" />
-            <span>Practice Areas</span>
-          </div>
+          <p className="text-steel-blue text-sm font-semibold uppercase tracking-wider mb-4">
+            Practice Areas
+          </p>
           
-          <h2 className="text-4xl lg:text-6xl font-display font-bold text-deep-navy mb-6">
-            Areas of <span className="text-transparent bg-clip-text bg-gradient-to-r from-steel-blue to-cyan-500">Expertise</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-deep-navy mb-6 tracking-tight">
+            Areas of Expertise
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-            Our experienced attorneys specialize in multiple practice areas, providing comprehensive legal solutions 
-            tailored to your unique needs.
+          <p className="text-lg md:text-xl text-gray-600 max-w-8xl mx-auto leading-relaxed">
+            Comprehensive legal solutions tailored to your unique needs
           </p>
         </motion.div>
 
-        {/* Expertise Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {/* Expertise Grid - Clean Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
           {expertiseAreas.map((area, index) => {
             const Icon = area.icon;
             return (
               <motion.div
                 key={area.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 h-full border border-white/20 group-hover:border-steel-blue/30 group-hover:-translate-y-2">
-                  {/* Header with Icon */}
-                  <div className="mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${area.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <Icon className="w-8 h-8 text-white" />
+                <Link href="/services" className="block h-full">
+                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 hover:border-steel-blue/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                    {/* Icon - Minimal Style */}
+                    <div className="mb-6">
+                      <div className="w-12 h-12 rounded-xl bg-steel-blue/10 flex items-center justify-center group-hover:bg-steel-blue group-hover:scale-110 transition-all duration-300">
+                        <Icon className="w-6 h-6 text-steel-blue group-hover:text-white transition-colors duration-300" />
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Title */}
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-display font-bold text-deep-navy group-hover:text-steel-blue transition-colors duration-300">
+                    {/* Title */}
+                    <h3 className="text-xl md:text-2xl font-semibold text-deep-navy mb-3 group-hover:text-steel-blue transition-colors duration-300">
                       {area.title}
                     </h3>
-                  </div>
-                  
-                  {/* Description */}
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {area.description}
-                  </p>
+                    
+                    {/* Description */}
+                    <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed flex-grow">
+                      {area.description}
+                    </p>
 
-                  {/* Features */}
-                  <div className="space-y-2 mb-6">
-                    {area.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
+                    {/* Features - Simplified List */}
+                    <div className="space-y-2 pb-6 border-b border-gray-100">
+                      {area.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start space-x-2">
+                          <div className="w-1 h-1 rounded-full bg-steel-blue mt-2 flex-shrink-0" />
+                          <span className="text-sm text-gray-600">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
 
-                  {/* CTA Arrow */}
-                  <div className="flex justify-end pt-4 border-t border-gray-100">
-                    <motion.div
-                      className="text-steel-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      whileHover={{ x: 4 }}
-                    >
-                      <ArrowRight className="w-5 h-5" />
-                    </motion.div>
+                    {/* Learn More Link */}
+                    <div className="flex items-center justify-between pt-4 text-steel-blue text-sm font-medium">
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        Learn more
+                      </span>
+                      <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             );
           })}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA Section - Minimal & Professional */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="max-w-4xl mx-auto"
         >
-          <div className="bg-gradient-to-r from-deep-navy via-steel-blue to-deep-navy rounded-3xl p-12 lg:p-16 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-[url('/images/background.png')] bg-cover bg-center opacity-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+          <div className="bg-deep-navy rounded-2xl md:rounded-3xl p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
+            {/* Subtle Background Pattern */}
+            <div className="absolute inset-0 bg-[url('/images/background.png')] bg-cover bg-center opacity-5"></div>
             
             <div className="relative z-10">
-              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 text-white/90 mb-8">
-                <Scale className="w-5 h-5 text-yellow-400" />
-                <span className="text-sm font-medium">Ready to Get Started?</span>
-              </div>
-              
-              <h3 className="text-4xl lg:text-5xl font-display font-bold mb-6">
-                Need Legal <span className="text-cyan-400">Assistance?</span>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-semibold text-white mb-4 md:mb-6">
+                Need Legal Assistance?
               </h3>
               
-              <p className="text-xl text-white/80 mb-12 max-w-6xl mx-auto leading-relaxed">
-                Our team of experienced attorneys is ready to help you navigate any legal challenge 
-                with confidence, expertise, and proven results.
+              <p className="text-base md:text-lg lg:text-xl text-white/80 mb-8 md:mb-10 max-w-6xl mx-auto leading-relaxed">
+                Our experienced team is ready to help you navigate your legal challenges with confidence and expertise.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-deep-navy hover:bg-white/90 px-8 py-5 rounded-2xl font-semibold text-lg group shadow-2xl"
-                >
-                  Schedule Free Consultation
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link href="/contact">
+                  <Button 
+                    size="lg" 
+                    className="bg-white text-deep-navy hover:bg-white/90 px-6 md:px-8 py-4 md:py-5 rounded-xl font-semibold text-base md:text-lg group shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto"
+                  >
+                    Schedule Consultation
+                    <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
                 
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white/30 text-white hover:bg-white/10 backdrop-blur-xl px-8 py-5 rounded-2xl font-semibold text-lg group"
-                >
-                  View Our Team
-                  <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
-                </Button>
+                <Link href="/about">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-2 border-white/30 text-deep-navy hover:bg-white/10 hover:border-white/50 px-6 md:px-8 py-4 md:py-5 rounded-xl font-semibold text-base md:text-lg backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+                  >
+                    View Our Team
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

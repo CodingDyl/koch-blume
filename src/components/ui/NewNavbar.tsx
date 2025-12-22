@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Linkedin, Facebook, Instagram } from "lucide-react";
 
 export default function NewNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -125,16 +125,20 @@ export default function NewNavbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-deep-navy"
+            className="fixed inset-0 z-40 bg-deep-navy overflow-y-auto"
           >
-            <div className="h-full flex flex-col">
+            {/* Scrollable Container */}
+            <div className="min-h-screen flex flex-col">
+              
+              {/* Top Spacer for Navbar */}
+              <div className="h-24 md:h-32 flex-shrink-0"></div>
               
               {/* Menu Content Container */}
-              <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-                <div className="w-full max-w-4xl">
+              <div className="flex-1 px-4 sm:px-6 lg:px-8 pb-8">
+                <div className="w-full max-w-4xl mx-auto">
                   
                   {/* Navigation Links */}
-                  <nav className="space-y-2 mb-16">
+                  <nav className="space-y-3 sm:space-y-4 mb-12 sm:mb-16 md:mb-20">
                     {menuItems.map((item, index) => (
                       <motion.div
                         key={item.label}
@@ -145,13 +149,13 @@ export default function NewNavbar() {
                         <Link
                           href={item.link}
                           onClick={closeMenu}
-                          className="group block py-4 border-b border-white/10 hover:border-steel-blue/50 transition-colors duration-300"
+                          className="group block py-4 sm:py-5 md:py-6 border-b border-white/10 hover:border-steel-blue/50 transition-colors duration-300"
                         >
                           <div className="flex items-center justify-between">
-                            <span className="text-4xl md:text-5xl lg:text-6xl font-display font-light text-white group-hover:text-steel-blue transition-colors duration-300">
+                            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-light text-white group-hover:text-steel-blue transition-colors duration-300">
                               {item.label}
                             </span>
-                            <span className="text-white/40 text-sm font-medium group-hover:text-steel-blue transition-colors duration-300">
+                            <span className="text-white/40 text-xs sm:text-sm font-medium group-hover:text-steel-blue transition-colors duration-300">
                               0{index + 1}
                             </span>
                           </div>
@@ -165,18 +169,18 @@ export default function NewNavbar() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8"
+                    className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 sm:gap-12"
                   >
                     
                     {/* Contact Info */}
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                       <div>
                         <p className="text-white/60 text-xs font-medium uppercase tracking-wider mb-2">
                           Get in Touch
                         </p>
                         <a 
                           href="mailto:info@kblegal.co.za"
-                          className="text-white hover:text-steel-blue transition-colors duration-300 text-lg"
+                          className="text-white hover:text-steel-blue transition-colors duration-300 text-base sm:text-lg break-words"
                         >
                           info@kblegal.co.za
                         </a>
@@ -187,7 +191,7 @@ export default function NewNavbar() {
                         </p>
                         <a 
                           href="tel:0103000247"
-                          className="text-white hover:text-steel-blue transition-colors duration-300 text-lg"
+                          className="text-white hover:text-steel-blue transition-colors duration-300 text-base sm:text-lg"
                         >
                           010 300 0247
                         </a>
@@ -208,10 +212,10 @@ export default function NewNavbar() {
                               href={social.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="w-10 h-10 flex items-center justify-center border border-white/20 hover:border-steel-blue hover:bg-steel-blue/10 transition-all duration-300 group"
+                              className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-white/20 hover:border-steel-blue hover:bg-steel-blue/10 transition-all duration-300 group rounded-lg"
                               aria-label={social.label}
                             >
-                              <Icon className="w-5 h-5 text-white group-hover:text-steel-blue transition-colors duration-300" />
+                              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-steel-blue transition-colors duration-300" />
                             </a>
                           );
                         })}
@@ -226,10 +230,10 @@ export default function NewNavbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="px-4 sm:px-6 lg:px-8 py-8 border-t border-white/10"
+                className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8 border-t border-white/10 mt-auto"
               >
                 <div className="max-w-4xl mx-auto">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-white/60 text-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-white/60 text-xs sm:text-sm">
                     <p>1st Floor, 145 Second St, Sandton</p>
                     <p>© 2024 Kochukov & Blume. All rights reserved.</p>
                   </div>
