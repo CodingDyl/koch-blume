@@ -150,7 +150,7 @@ export default function AreaOfExpertise() {
                 Our experienced team is ready to help you navigate your legal challenges with confidence and expertise.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center" >
                 <Link href="/contact">
                   <Button 
                     size="lg" 
@@ -165,7 +165,7 @@ export default function AreaOfExpertise() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-2 border-white/30 text-deep-navy hover:bg-white/10 hover:border-white/50 px-6 md:px-8 py-4 md:py-5 rounded-xl font-semibold text-base md:text-lg backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+                    className="hidden md:flex border-2 border-white/30 text-deep-navy hover:bg-white/10 hover:border-white/50 px-6 md:px-8 py-4 md:py-5 rounded-xl font-semibold text-base md:text-lg backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
                   >
                     View Our Team
                   </Button>

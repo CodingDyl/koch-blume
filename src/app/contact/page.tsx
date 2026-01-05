@@ -1,23 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { 
   Mail, 
   MapPin, 
   Phone, 
   Clock,
-  Calendar,
-  MessageSquare,
-  Send,
   CheckCircle,
-  Navigation,
-  Users,
+  Calendar,
   Upload,
   Paperclip,
   X as XIcon
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ThemeAnimatedButton } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -32,11 +29,10 @@ export default function ContactPage() {
   const [formErrors, setFormErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
-  
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
 
   // Available consultation times
   const availableTimes = [
@@ -50,28 +46,21 @@ export default function ContactPage() {
       title: "Phone",
       value: "010 300 0247",
       href: "tel:0103000247",
-      description: "Call us for immediate assistance"
+      description: "Monday - Friday, 8:00 AM - 6:00 PM"
     },
     {
       icon: Mail,
       title: "Email",
       value: "info@kblegal.co.za",
       href: "mailto:info@kblegal.co.za",
-      description: "Send us a detailed message"
+      description: "We'll respond within 24 hours"
     },
     {
       icon: MapPin,
-      title: "Address",
+      title: "Office",
       value: "1st Floor, 145 Second St, Sandton",
-      href: "#",
-      description: "Visit our office"
-    },
-    {
-      icon: Clock,
-      title: "Hours",
-      value: "Mon-Fri: 8:00 AM - 5:00 PM\nSat: 9:00 AM - 1:00 PM",
-      href: "#",
-      description: "Our business hours"
+      href: "#location",
+      description: "Visit us by appointment"
     }
   ];
 
@@ -89,7 +78,6 @@ export default function ContactPage() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (formErrors[name]) {
       setFormErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -100,6 +88,36 @@ export default function ContactPage() {
     if (files) {
       const fileArray = Array.from(files);
       // Limit to 5 files max, 10MB each
+      const validFiles = fileArray.filter(file => file.size <= 10 * 1024 * 1024);
+      setUploadedFiles(prev => [...prev, ...validFiles].slice(0, 5));
+    }
+  };
+
+  const handleDragEnter = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const files = e.dataTransfer.files;
+    if (files) {
+      const fileArray = Array.from(files);
       const validFiles = fileArray.filter(file => file.size <= 10 * 1024 * 1024);
       setUploadedFiles(prev => [...prev, ...validFiles].slice(0, 5));
     }
@@ -149,70 +167,55 @@ export default function ContactPage() {
     setUploadedFiles([]);
   };
 
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50" ref={containerRef}>
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-deep-navy via-steel-blue to-deep-navy">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Clean & Minimal */}
+      <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-28 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
           >
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 text-white/90 mb-8">
-              <Phone className="w-5 h-5 text-yellow-400" />
-              <span className="text-sm font-medium">Contact Us</span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="mb-4 sm:mb-6"
+            >
+              <p className="text-[#548caf] text-xs sm:text-sm font-medium uppercase tracking-wider">
+                Get in Touch
+              </p>
+            </motion.div>
             
-            <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6">
-              Get in <span className="text-steel-blue">Touch</span>
-                </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-gray-900 leading-tight mb-6 sm:mb-8 font-display"
+              style={{ fontFamily: 'var(--font-headline)' }}
+            >
+              Let&apos;s discuss your legal needs.
+            </motion.h1>
             
-                <p className="text-xl lg:text-2xl text-white/80 max-w-6xl mx-auto leading-relaxed mb-12">
-              Ready to discuss your legal needs? Contact us today for a consultation and discover how our experienced team can help you achieve your legal goals.
-            </p>
-
-            <div className="flex justify-center">
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white/30 text-primary hover:bg-white/10 backdrop-blur-xl px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer"
-                onClick={() => window.location.href = 'tel:0103000247'}
-              >
-                Call Now
-                <Phone className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed"
+              style={{ fontFamily: 'var(--font-body)' }}
+            >
+              Whether you need immediate legal assistance or wish to schedule a consultation, our experienced team is ready to help you navigate your legal challenges.
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Information Display */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Users className="w-4 h-4" />
-              <span>Contact Information</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              How to <span className="text-steel-blue">Reach Us</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Multiple ways to get in touch with our legal team. Choose the method that works best for you.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Contact Information Cards */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-16 sm:mb-20">
             {contactInfo.map((contact, index) => {
               const Icon = contact.icon;
               return (
@@ -222,36 +225,33 @@ export default function ContactPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group cursor-pointer"
+                  className="group"
                 >
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-steel-blue/30 group-hover:-translate-y-2 h-full">
-                    <div className="p-8 text-center">
-                      <div className="w-16 h-16 bg-steel-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-8 h-8 text-steel-blue" />
+                  <a 
+                    href={contact.href}
+                    className="block bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-100 hover:border-[#548caf]/30 hover:shadow-xl transition-all duration-300 h-full"
+                  >
+                    <div className="mb-5 sm:mb-6">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-[#548caf]/10 flex items-center justify-center group-hover:bg-[#548caf] group-hover:scale-110 transition-all duration-300">
+                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#548caf] group-hover:text-white transition-colors duration-300" />
                       </div>
-                      
-                      <h3 className="text-lg font-bold text-deep-navy group-hover:text-steel-blue transition-colors mb-3">
-                        {contact.title}
-                      </h3>
-                      
-                      {contact.href !== "#" ? (
-                        <a
-                          href={contact.href}
-                          className="text-steel-blue hover:text-steel-blue/80 transition-colors font-medium mb-3 block truncate"
-                        >
-                          {contact.value}
-                        </a>
-                      ) : (
-                        <p className="text-steel-blue font-medium mb-3 whitespace-pre-line">
-                          {contact.value}
-                        </p>
-                      )}
-                      
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {contact.description}
-                      </p>
                     </div>
-                  </div>
+
+                    <h3 className="text-lg sm:text-xl font-light text-[#1a385c] mb-2 sm:mb-3 font-display"
+                        style={{ fontFamily: 'var(--font-headline)' }}>
+                      {contact.title}
+                    </h3>
+                    
+                    <p className="text-base sm:text-lg text-[#548caf] font-medium mb-2"
+                       style={{ fontFamily: 'var(--font-body)' }}>
+                      {contact.value}
+                    </p>
+
+                    <p className="text-sm text-gray-600"
+                       style={{ fontFamily: 'var(--font-body)' }}>
+                      {contact.description}
+                    </p>
+                  </a>
                 </motion.div>
               );
             })}
@@ -259,55 +259,68 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Consultation Scheduler */}
-      <section className="py-20 bg-light-gray">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Consultation Booking Section */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Calendar className="w-4 h-4" />
-              <span>Schedule Consultation</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Book Your <span className="text-steel-blue">Consultation</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4 font-display"
+                style={{ fontFamily: 'var(--font-headline)' }}>
+              Book a consultation
             </h2>
-            <p className="text-xl text-gray-600 max-w-8xl mx-auto leading-relaxed">
-              Select your preferred date and time for a consultation with our legal team.
+            <p className="text-base sm:text-lg text-gray-600 px-4"
+               style={{ fontFamily: 'var(--font-body)' }}>
+              Select your preferred date and time
             </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10">
-              <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-8 lg:p-10"
+            >
+              <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <label className="block text-base font-semibold text-deep-navy mb-4">Preferred Date</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3"
+                         style={{ fontFamily: 'var(--font-body)' }}>
+                    Preferred Date
+                  </label>
                   <input
                     type="date"
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent text-base"
+                    className="w-full px-4 py-3 sm:py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent text-sm sm:text-base"
+                    style={{ fontFamily: 'var(--font-body)' }}
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-base font-semibold text-deep-navy mb-4">Preferred Time</label>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-3"
+                         style={{ fontFamily: 'var(--font-body)' }}>
+                    Preferred Time
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                     {availableTimes.map((time) => (
                       <button
                         key={time}
                         type="button"
                         onClick={() => setSelectedTime(time)}
-                        className={`w-full px-4 py-4 rounded-xl border-2 transition-all duration-200 text-base font-medium whitespace-nowrap ${
+                        className={`w-full px-4 py-3 sm:py-4 rounded-xl border-2 transition-all duration-200 text-sm sm:text-base font-medium whitespace-nowrap ${
                           selectedTime === time
-                            ? 'border-steel-blue bg-steel-blue text-white shadow-lg'
-                            : 'border-gray-300 text-gray-700 hover:border-steel-blue hover:bg-steel-blue/5'
+                            ? 'border-[#548caf] bg-[#548caf] text-white'
+                            : 'border-gray-200 text-gray-700 hover:border-[#548caf] hover:bg-[#548caf]/5'
                         }`}
+                        style={{ fontFamily: 'var(--font-body)' }}
                       >
                         {time}
                       </button>
@@ -319,355 +332,473 @@ export default function ContactPage() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
+                    className="pt-4"
                   >
-                    <Button className="w-full bg-steel-blue hover:bg-steel-blue/90 text-white py-4 rounded-xl font-semibold text-lg shadow-lg">
+                    <button 
+                      className="w-full px-6 py-4 bg-[#548caf] text-white rounded-xl hover:bg-[#548caf]/90 transition-colors duration-200 text-base font-medium flex items-center justify-center gap-2"
+                      style={{ fontFamily: 'var(--font-body)' }}
+                    >
                       Confirm Booking
-                      <Calendar className="w-5 h-5 ml-2" />
-                    </Button>
+                      <Calendar className="w-5 h-5" />
+                    </button>
                   </motion.div>
                 )}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form with Validation */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Contact Form Section */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <MessageSquare className="w-4 h-4" />
-              <span>Send Message</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Get in <span className="text-steel-blue">Touch</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4 font-display"
+                style={{ fontFamily: 'var(--font-headline)' }}>
+              Send us a message
             </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Have a question or need legal advice? Send us a message and we&apos;ll get back to you within 24 hours.
+            <p className="text-base sm:text-lg text-gray-600 px-4"
+               style={{ fontFamily: 'var(--font-body)' }}>
+              We&apos;ll respond within 24 hours
             </p>
           </motion.div>
 
-          {isSubmitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-white rounded-3xl shadow-2xl p-12 text-center"
-            >
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-10 h-10 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-deep-navy mb-4">Message Sent Successfully!</h3>
-              <p className="text-gray-600 mb-8">
-                Thank you for your message. We&apos;ll get back to you within 24 hours.
-              </p>
-              <Button onClick={() => setIsSubmitted(false)} className="bg-steel-blue hover:bg-steel-blue/90 text-white px-8 py-4 rounded-xl font-semibold">
-                Send Another Message
-              </Button>
-            </motion.div>
-          ) : (
-            <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent ${
-                        formErrors.name ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      placeholder="Enter your full name"
-                    />
-                    {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent ${
-                        formErrors.email ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      placeholder="Enter your email"
-                    />
-                    {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
-                  </div>
+          <div className="max-w-5xl mx-auto">
+            {isSubmitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg p-8 sm:p-12 text-center"
+              >
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-green-600" />
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent ${
-                        formErrors.phone ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      placeholder="Enter your phone number"
-                    />
-                    {formErrors.phone && <p className="text-red-500 text-sm mt-1">{formErrors.phone}</p>}
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Contact Method</label>
-                    <select
-                      name="preferredContact"
-                      value={formData.preferredContact}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent"
-                    >
-                      <option value="email">Email</option>
-                      <option value="phone">Phone</option>
-                      <option value="both">Both</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent ${
-                      formErrors.subject ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder="What is this regarding?"
-                  />
-                  {formErrors.subject && <p className="text-red-500 text-sm mt-1">{formErrors.subject}</p>}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={6}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent ${
-                      formErrors.message ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder="Please describe your legal matter in detail..."
-                  />
-                  {formErrors.message && <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Practice Area *</label>
-                  <select
-                    name="practiceArea"
-                    value={formData.practiceArea}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-steel-blue focus:border-transparent ${
-                      formErrors.practiceArea ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                  >
-                    <option value="">Select a practice area</option>
-                    {practiceAreas.map((area) => (
-                      <option key={area.value} value={area.value}>
-                        {area.label}
-                      </option>
-                    ))}
-                  </select>
-                  {formErrors.practiceArea && <p className="text-red-500 text-sm mt-1">{formErrors.practiceArea}</p>}
-                </div>
-
-                {/* File Upload Section */}
-                <div className="space-y-3">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Supporting Documents <span className="text-gray-500 font-normal">(Optional, max 5 files, 10MB each)</span>
-                  </label>
-                  
-                  <div className="relative">
-                    <input
-                      type="file"
-                      id="file-upload"
-                      multiple
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                      onChange={handleFileUpload}
-                      className="hidden"
-                    />
-                    <label
-                      htmlFor="file-upload"
-                      className="flex items-center justify-center w-full px-4 py-8 border-2 border-dashed border-gray-300 rounded-xl hover:border-steel-blue transition-colors duration-300 cursor-pointer bg-gray-50 hover:bg-steel-blue/5"
-                    >
-                      <div className="text-center">
-                        <Upload className="w-8 h-8 text-gray-400 mx-auto mb-3" />
-                        <p className="text-sm text-gray-600 font-medium mb-1">
-                          Click to upload or drag and drop
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          PDF, DOC, DOCX, JPG, PNG up to 10MB
-                        </p>
-                      </div>
-                    </label>
-                  </div>
-
-                  {/* Uploaded Files List */}
-                  {uploadedFiles.length > 0 && (
-                    <div className="space-y-2">
-                      {uploadedFiles.map((file, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center justify-between p-3 bg-steel-blue/5 border border-steel-blue/20 rounded-lg"
-                        >
-                          <div className="flex items-center space-x-3 flex-1 min-w-0">
-                            <Paperclip className="w-4 h-4 text-steel-blue flex-shrink-0" />
-                            <span className="text-sm text-gray-700 truncate">
-                              {file.name}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              ({(file.size / 1024).toFixed(0)} KB)
-                            </span>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => removeFile(index)}
-                            className="ml-2 text-gray-400 hover:text-red-500 transition-colors flex-shrink-0"
-                            aria-label="Remove file"
-                          >
-                            <XIcon className="w-4 h-4" />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-steel-blue hover:bg-steel-blue/90 text-white py-4 rounded-xl font-semibold text-lg disabled:opacity-50"
+                <h3 className="text-xl sm:text-2xl font-light text-[#1a385c] mb-3 sm:mb-4 font-display"
+                    style={{ fontFamily: 'var(--font-headline)' }}>
+                  Message sent successfully
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8"
+                   style={{ fontFamily: 'var(--font-body)' }}>
+                  Thank you for contacting us. We&apos;ll get back to you within 24 hours.
+                </p>
+                <button 
+                  onClick={() => setIsSubmitted(false)}
+                  className="px-6 py-3 bg-[#548caf] text-white rounded-xl hover:bg-[#548caf]/90 transition-colors duration-200 text-sm sm:text-base font-medium"
+                  style={{ fontFamily: 'var(--font-body)' }}
                 >
-                  {isSubmitting ? (
-                    <div className="flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Sending Message...
+                  Send another message
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-8 lg:p-10"
+              >
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent transition-all ${
+                          formErrors.name ? 'border-red-500' : 'border-gray-200'
+                        }`}
+                        placeholder="Enter your full name"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      />
+                      {formErrors.name && <p className="text-red-500 text-xs mt-1">{formErrors.name}</p>}
                     </div>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="w-5 h-5 ml-2" />
-                    </>
-                  )}
-                </Button>
-              </form>
-            </div>
-          )}
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent transition-all ${
+                          formErrors.email ? 'border-red-500' : 'border-gray-200'
+                        }`}
+                        placeholder="your.email@example.com"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      />
+                      {formErrors.email && <p className="text-red-500 text-xs mt-1">{formErrors.email}</p>}
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent transition-all ${
+                          formErrors.phone ? 'border-red-500' : 'border-gray-200'
+                        }`}
+                        placeholder="010 300 0247"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      />
+                      {formErrors.phone && <p className="text-red-500 text-xs mt-1">{formErrors.phone}</p>}
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                        Preferred Contact Method
+                      </label>
+                      <select
+                        name="preferredContact"
+                        value={formData.preferredContact}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent transition-all"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      >
+                        <option value="email">Email</option>
+                        <option value="phone">Phone</option>
+                        <option value="both">Both</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent transition-all"
+                        placeholder="Brief description"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                        Practice Area *
+                      </label>
+                      <select
+                        name="practiceArea"
+                        value={formData.practiceArea}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent transition-all ${
+                          formErrors.practiceArea ? 'border-red-500' : 'border-gray-200'
+                        }`}
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      >
+                        <option value="">Select a practice area</option>
+                        {practiceAreas.map((area) => (
+                          <option key={area.value} value={area.value}>
+                            {area.label}
+                          </option>
+                        ))}
+                      </select>
+                      {formErrors.practiceArea && <p className="text-red-500 text-xs mt-1">{formErrors.practiceArea}</p>}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2"
+                           style={{ fontFamily: 'var(--font-body)' }}>
+                      Message *
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={6}
+                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent transition-all resize-none ${
+                        formErrors.message ? 'border-red-500' : 'border-gray-200'
+                      }`}
+                      placeholder="Please describe your legal matter in detail..."
+                      style={{ fontFamily: 'var(--font-body)' }}
+                    />
+                    {formErrors.message && <p className="text-red-500 text-xs mt-1">{formErrors.message}</p>}
+                  </div>
+
+                  {/* File Upload Section */}
+                  <div className="space-y-3">
+                    <label className="block text-sm font-medium text-gray-700"
+                           style={{ fontFamily: 'var(--font-body)' }}>
+                      Supporting Documents{' '}
+                      <span className="text-gray-500 font-normal">(Optional, max 5 files, 10MB each)</span>
+                    </label>
+                    
+                    <div
+                      onDragEnter={handleDragEnter}
+                      onDragOver={handleDragOver}
+                      onDragLeave={handleDragLeave}
+                      onDrop={handleDrop}
+                      className="relative"
+                    >
+                      <input
+                        type="file"
+                        id="file-upload"
+                        multiple
+                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                        onChange={handleFileUpload}
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="file-upload"
+                        className={`flex items-center justify-center w-full px-4 py-8 sm:py-10 border-2 border-dashed rounded-xl transition-all duration-300 cursor-pointer ${
+                          isDragging
+                            ? 'border-[#548caf] bg-[#548caf]/5'
+                            : 'border-gray-200 hover:border-[#548caf] hover:bg-[#548caf]/5'
+                        }`}
+                      >
+                        <div className="text-center">
+                          <Upload className={`w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 transition-colors ${
+                            isDragging ? 'text-[#548caf]' : 'text-gray-400'
+                          }`} />
+                          <p className="text-sm sm:text-base text-gray-700 font-medium mb-1"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                            {isDragging ? 'Drop files here' : 'Click to upload or drag and drop'}
+                          </p>
+                          <p className="text-xs sm:text-sm text-gray-500"
+                             style={{ fontFamily: 'var(--font-body)' }}>
+                            PDF, DOC, DOCX, JPG, PNG up to 10MB
+                          </p>
+                        </div>
+                      </label>
+                    </div>
+
+                    {/* Uploaded Files List */}
+                    {uploadedFiles.length > 0 && (
+                      <div className="space-y-2">
+                        {uploadedFiles.map((file, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center justify-between p-3 sm:p-4 bg-[#548caf]/5 border border-[#548caf]/20 rounded-lg"
+                          >
+                            <div className="flex items-center space-x-3 flex-1 min-w-0">
+                              <Paperclip className="w-4 h-4 text-[#548caf] flex-shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <span className="text-sm text-gray-700 truncate block"
+                                      style={{ fontFamily: 'var(--font-body)' }}>
+                                  {file.name}
+                                </span>
+                                <span className="text-xs text-gray-500"
+                                      style={{ fontFamily: 'var(--font-body)' }}>
+                                  {(file.size / 1024).toFixed(0)} KB
+                                </span>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => removeFile(index)}
+                              className="ml-2 text-gray-400 hover:text-red-500 transition-colors flex-shrink-0 p-1"
+                              aria-label="Remove file"
+                            >
+                              <XIcon className="w-4 h-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="pt-4">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full px-6 py-4 bg-[#548caf] text-white rounded-xl hover:bg-[#548caf]/90 transition-colors duration-200 text-base font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{ fontFamily: 'var(--font-body)' }}
+                    >
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center">
+                          <span className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></span>
+                          Sending message...
+                        </span>
+                      ) : (
+                        'Send message'
+                      )}
+                    </button>
+                  </div>
+                </form>
+              </motion.div>
+            )}
+          </div>
         </div>
       </section>
 
-      {/* Office Location and Directions */}
-      <section className="py-20 bg-light-gray">
-        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Office Location Section */}
+      <section id="location" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <MapPin className="w-4 h-4" />
-              <span>Our Location</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Visit Our <span className="text-steel-blue">Office</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4 font-display"
+                style={{ fontFamily: 'var(--font-headline)' }}>
+              Visit our office
             </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Located in the heart of Sandton, our office is easily accessible by car and public transport.
+            <p className="text-base sm:text-lg text-gray-600 px-4"
+               style={{ fontFamily: 'var(--font-body)' }}>
+              Located in the heart of Sandton
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-deep-navy mb-6">Office Information</h3>
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-8 lg:p-10"
+            >
+              <h3 className="text-xl sm:text-2xl font-light text-[#1a385c] mb-6 font-display"
+                  style={{ fontFamily: 'var(--font-headline)' }}>
+                Office information
+              </h3>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-steel-blue mt-1" />
+                  <MapPin className="w-5 h-5 text-[#548caf] mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-deep-navy mb-2">Address</h4>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h4 className="text-sm font-medium text-gray-900 mb-2"
+                        style={{ fontFamily: 'var(--font-body)' }}>
+                      Address
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                       style={{ fontFamily: 'var(--font-body)' }}>
                       1st Floor, 145 Second St<br />
-                      Sandton, South Africa<br />
-                      Postal Code: 2196
+                      Sandton, Johannesburg<br />
+                      2196, South Africa
                     </p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <Clock className="w-6 h-6 text-steel-blue mt-1" />
+                  <Clock className="w-5 h-5 text-[#548caf] mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-deep-navy mb-2">Business Hours</h4>
-                    <div className="text-gray-600 space-y-1">
-                      <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                      <p>Saturday: 9:00 AM - 1:00 PM</p>
+                    <h4 className="text-sm font-medium text-gray-900 mb-2"
+                        style={{ fontFamily: 'var(--font-body)' }}>
+                      Business hours
+                    </h4>
+                    <div className="text-sm sm:text-base text-gray-600 space-y-1"
+                         style={{ fontFamily: 'var(--font-body)' }}>
+                      <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                      <p>Saturday: By appointment only</p>
                       <p>Sunday: Closed</p>
                     </div>
                   </div>
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <Navigation className="w-6 h-6 text-steel-blue mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-deep-navy mb-2">Parking</h4>
-                    <p className="text-gray-600 leading-relaxed">
-                      Free parking available in our building. Underground parking accessible via the main entrance.
-                    </p>
-                  </div>
-                </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-deep-navy mb-6">Getting Here</h3>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-8 lg:p-10"
+            >
+              <h3 className="text-xl sm:text-2xl font-light text-[#1a385c] mb-6 font-display"
+                  style={{ fontFamily: 'var(--font-headline)' }}>
+                Getting here
+              </h3>
               
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-semibold text-deep-navy mb-3">By Car</h4>
-                  <p className="text-gray-600 leading-relaxed mb-3">
-                    From Johannesburg CBD: Take the M1 North to Sandton, exit at Second Street.
-                  </p>
-                  <p className="text-gray-600 leading-relaxed">
-                    From Pretoria: Take the N1 South, exit at Sandton, follow signs to Second Street.
+                  <h4 className="text-sm font-medium text-gray-900 mb-3"
+                      style={{ fontFamily: 'var(--font-body)' }}>
+                    By car
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                    Free parking available in our building. Underground parking accessible via the main entrance on Second Street.
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-deep-navy mb-3">By Public Transport</h4>
-                  <p className="text-gray-600 leading-relaxed mb-3">
-                    Sandton Gautrain Station is a 5-minute walk from our office.
+                  <h4 className="text-sm font-medium text-gray-900 mb-3"
+                      style={{ fontFamily: 'var(--font-body)' }}>
+                    By public transport
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                    Sandton Gautrain Station is a 5-minute walk from our office. Multiple bus routes serve the area with stops nearby.
                   </p>
-                  <p className="text-gray-600 leading-relaxed">
-                    Multiple bus routes serve the Sandton area with stops near our building.
-                </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-deep-navy mb-3">Accessibility</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    Our office is fully accessible with wheelchair ramps, elevators, and accessible restrooms.
+                  <h4 className="text-sm font-medium text-gray-900 mb-3"
+                      style={{ fontFamily: 'var(--font-body)' }}>
+                    Accessibility
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                    Our office is fully accessible with wheelchair ramps, elevators, and accessible facilities.
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 font-display"
+                style={{ fontFamily: 'var(--font-headline)' }}>
+              Prefer to speak directly?
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 leading-relaxed"
+               style={{ fontFamily: 'var(--font-body)' }}>
+              Call us now for immediate assistance or to schedule a consultation
+            </p>
+            
+            <a href="tel:0103000247">
+              <ThemeAnimatedButton 
+                size="lg"
+                variant="primary"
+                className="whitespace-nowrap rounded-xl"
+              >
+                Call 010 300 0247
+              </ThemeAnimatedButton>
+            </a>
+          </motion.div>
         </div>
       </section>
     </div>

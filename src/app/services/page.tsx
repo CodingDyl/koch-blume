@@ -1,333 +1,210 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { 
   Scale, 
   Shield, 
   Heart, 
-  Building, 
-  Gavel, 
-  FileText, 
-  Users, 
-  Clock, 
+  Building2, 
+  FileText,
   CheckCircle,
-  ArrowRight,
-  Star,
-  Award,
-  Target,
-  Zap,
-  BookOpen,
-  Phone,
-  Mail,
-  Calendar,
-  ChevronRight,
-  ChevronDown,
-  Plus,
-  Minus,
-  ExternalLink,
-  Play,
-  Pause,
-  Volume2,
-  Briefcase,
-  Sparkles,
-  Crown,
-  Globe,
-  Handshake,
-  Eye,
-  Lock,
-  Unlock,
-  AlertCircle,
-  Info,
-  HelpCircle,
-  Search,
-  Filter,
-  SortAsc,
-  SortDesc
+  ArrowRight
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ThemeAnimatedButton } from "@/components/ui/button";
+import Link from "next/link";
 
 interface PracticeArea {
   title: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
-  color: string;
   features: string[];
+  process: string[];
 }
 
 export default function ServicesPage() {
-  const [currentQuizStep, setCurrentQuizStep] = useState(0);
-  const [quizAnswers, setQuizAnswers] = useState({});
-  const [selectedService, setSelectedService] = useState<PracticeArea | null>(null);
-  const [isQuizComplete, setIsQuizComplete] = useState(false);
-  
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-
-  // Practice areas data
-  const practiceAreas = [
+  const practiceAreas: PracticeArea[] = [
     {
       title: "Corporate Law",
-      description: "Strategic legal counsel for businesses of all sizes, from startups to Fortune 500 companies.",
-      icon: Building,
-      color: "from-blue-500 to-cyan-500",
-      features: ["Business Formation", "Contract Negotiation", "Mergers & Acquisitions", "Compliance"]
+      description: "Strategic legal counsel for businesses navigating complex corporate matters, mergers, and regulatory compliance.",
+      icon: Building2,
+      features: [
+        "Business Formation & Structuring",
+        "Contract Drafting & Negotiation",
+        "Mergers & Acquisitions",
+        "Corporate Governance",
+        "Regulatory Compliance",
+        "Commercial Transactions"
+      ],
+      process: [
+        "Initial consultation and needs assessment",
+        "Strategic planning and structure development",
+        "Documentation and legal framework",
+        "Implementation and ongoing support"
+      ]
     },
     {
       title: "Family Law",
-      description: "Compassionate representation in divorce, custody, and family matters with proven results.",
+      description: "Compassionate legal representation in divorce, custody, and family matters, protecting what matters most to you.",
       icon: Heart,
-      color: "from-pink-500 to-rose-500",
-      features: ["Divorce", "Child Custody", "Property Division", "Adoption"]
-    },
-    {
-      title: "Real Estate Law",
-      description: "Expert guidance through complex property transactions and real estate disputes.",
-      icon: Building,
-      color: "from-green-500 to-emerald-500",
-      features: ["Property Transactions", "Title Issues", "Zoning Disputes", "Commercial Leases"]
-    },
-    {
-      title: "Criminal Defense",
-      description: "Aggressive defense strategies to protect your rights and secure the best possible outcome.",
-      icon: Shield,
-      color: "from-purple-500 to-violet-500",
-      features: ["DUI Defense", "White Collar Crimes", "Drug Offenses", "Traffic Violations"]
-    },
-    {
-      title: "Business Litigation",
-      description: "Skilled representation in commercial disputes and complex business litigation matters.",
-      icon: Gavel,
-      color: "from-orange-500 to-red-500",
-      features: ["Contract Disputes", "Partnership Issues", "Employment Law", "Intellectual Property"]
-    },
-    {
-      title: "Estate Planning",
-      description: "Comprehensive estate planning to protect your assets and secure your family&apos;s future.",
-      icon: FileText,
-      color: "from-indigo-500 to-blue-500",
-      features: ["Wills & Trusts", "Power of Attorney", "Estate Administration", "Tax Planning"]
-    }
-  ];
-
-  // Legal case assessment quiz
-  const quizQuestions = [
-    {
-      id: 1,
-      question: "What type of legal matter are you facing?",
-      options: [
-        { value: "business", label: "Business/Corporate", icon: Building },
-        { value: "family", label: "Family Law", icon: Heart },
-        { value: "criminal", label: "Criminal Defense", icon: Shield },
-        { value: "real-estate", label: "Real Estate", icon: Building },
-        { value: "litigation", label: "Business Litigation", icon: Gavel },
-        { value: "estate", label: "Estate Planning", icon: FileText }
-      ]
-    },
-    {
-      id: 2,
-      question: "What is the urgency of your legal matter?",
-      options: [
-        { value: "immediate", label: "Immediate (Within 24 hours)", icon: AlertCircle },
-        { value: "urgent", label: "Urgent (Within a week)", icon: Clock },
-        { value: "moderate", label: "Moderate (Within a month)", icon: Calendar },
-        { value: "planning", label: "Planning ahead", icon: Target }
-      ]
-    },
-    {
-      id: 3,
-      question: "What is your preferred communication method?",
-      options: [
-        { value: "phone", label: "Phone calls", icon: Phone },
-        { value: "email", label: "Email", icon: Mail },
-        { value: "video", label: "Video calls", icon: Play },
-        { value: "in-person", label: "In-person meetings", icon: Users }
-      ]
-    }
-  ];
-
-  // Detailed service descriptions
-  const serviceDetails = [
-    {
-      title: "Corporate Law Services",
-      category: "Business",
-      description: "Comprehensive legal support for businesses at every stage of growth.",
-      icon: Building,
-      color: "from-blue-500 to-cyan-500",
-      duration: "1-6 months",
       features: [
-        "Business formation and structuring",
-        "Contract drafting and negotiation",
-        "Mergers and acquisitions",
-        "Corporate governance",
-        "Regulatory compliance",
-        "Intellectual property protection"
-      ],
-      process: [
-        "Initial consultation and case assessment",
-        "Strategy development and planning",
-        "Document preparation and filing",
-        "Negotiation and representation",
-        "Ongoing support and monitoring"
-      ],
-      benefits: [
-        "Reduced legal risks",
-        "Improved business efficiency",
-        "Cost savings through proper structuring",
-        "Enhanced investor confidence"
-      ]
-    },
-    {
-      title: "Family Law Services",
-      category: "Family",
-      description: "Compassionate legal representation for all family matters.",
-      icon: Heart,
-      color: "from-pink-500 to-rose-500",
-      duration: "3-12 months",
-      features: [
-        "Divorce and separation",
-        "Child custody and support",
-        "Property division",
-        "Domestic violence protection",
-        "Adoption proceedings",
-        "Prenuptial agreements"
+        "Divorce & Separation",
+        "Child Custody & Support",
+        "Property Division",
+        "Domestic Partnerships",
+        "Adoption Services",
+        "Prenuptial Agreements"
       ],
       process: [
         "Confidential consultation",
         "Case evaluation and strategy",
-        "Document preparation",
-        "Court representation",
-        "Settlement negotiation"
+        "Mediation and negotiation",
+        "Court representation when needed"
+      ]
+    },
+    {
+      title: "Real Estate Law",
+      description: "Expert guidance through property transactions, commercial leases, and real estate disputes.",
+      icon: Building2,
+      features: [
+        "Property Acquisitions & Sales",
+        "Commercial Leasing",
+        "Title Resolution",
+        "Zoning & Land Use",
+        "Development Projects",
+        "Real Estate Litigation"
       ],
-      benefits: [
-        "Protection of your rights",
-        "Minimized emotional stress",
-        "Fair asset distribution",
-        "Child welfare prioritization"
+      process: [
+        "Property analysis and due diligence",
+        "Transaction structuring",
+        "Document preparation and review",
+        "Closing coordination"
+      ]
+    },
+    {
+      title: "Litigation",
+      description: "Skilled representation in complex commercial disputes and business litigation matters.",
+      icon: Scale,
+      features: [
+        "Commercial Disputes",
+        "Contract Litigation",
+        "Partnership Disputes",
+        "Employment Law",
+        "Intellectual Property",
+        "Appeals & Arbitration"
+      ],
+      process: [
+        "Case assessment and strategy",
+        "Discovery and evidence gathering",
+        "Motion practice and negotiation",
+        "Trial representation"
+      ]
+    },
+    {
+      title: "Criminal Defense",
+      description: "Aggressive defense strategies protecting your rights and securing the best possible outcome.",
+      icon: Shield,
+      features: [
+        "White Collar Crimes",
+        "Fraud Defense",
+        "Regulatory Investigations",
+        "DUI Defense",
+        "Appeals Process",
+        "Plea Negotiations"
+      ],
+      process: [
+        "Immediate consultation",
+        "Case investigation and analysis",
+        "Defense strategy development",
+        "Representation through resolution"
+      ]
+    },
+    {
+      title: "Estate Planning",
+      description: "Comprehensive planning to protect your assets and secure your family's future for generations.",
+      icon: FileText,
+      features: [
+        "Wills & Trusts",
+        "Power of Attorney",
+        "Estate Administration",
+        "Tax Planning",
+        "Asset Protection",
+        "Probate Services"
+      ],
+      process: [
+        "Estate assessment",
+        "Strategy and document preparation",
+        "Implementation and funding",
+        "Ongoing review and updates"
       ]
     }
   ];
 
-  // Case studies
-  const caseStudies = [
-    {
-      title: "Multi-Million Rand Corporate Merger",
-      category: "Corporate Law",
-      client: "Tech Startup",
-      challenge: "Complex merger with international company involving multiple jurisdictions",
-      solution: "Structured deal to minimize tax implications and regulatory hurdles",
-      result: "Successful R50M merger completed in 4 months",
-      outcome: "Client retained 60% ownership while gaining international market access",
-      icon: Building,
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "High-Profile Divorce Settlement",
-      category: "Family Law",
-      client: "Business Executive",
-      challenge: "Complex asset division involving multiple properties and business interests",
-      solution: "Negotiated fair settlement protecting client&apos;s business interests",
-      result: "Settlement reached without court proceedings",
-      outcome: "Client retained business control while ensuring fair property division",
-      icon: Heart,
-      color: "from-pink-500 to-rose-500"
-    },
-    {
-      title: "Commercial Property Dispute Resolution",
-      category: "Real Estate Law",
-      client: "Property Developer",
-      challenge: "Zoning dispute threatening R20M development project",
-      solution: "Navigated complex zoning regulations and secured necessary approvals",
-      result: "Project approved and construction commenced",
-      outcome: "Client saved R5M in potential delays and penalties",
-      icon: Building,
-      color: "from-green-500 to-emerald-500"
-    }
-  ];
-
-
-  const handleQuizAnswer = (questionId: number, answer: string) => {
-    setQuizAnswers(prev => ({ ...prev, [questionId]: answer }));
-    if (currentQuizStep < quizQuestions.length - 1) {
-      setCurrentQuizStep(currentQuizStep + 1);
-    } else {
-      setIsQuizComplete(true);
-    }
-  };
-
-  const resetQuiz = () => {
-    setCurrentQuizStep(0);
-    setQuizAnswers({});
-    setIsQuizComplete(false);
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50" ref={containerRef}>
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-deep-navy via-steel-blue to-deep-navy">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Clean & Minimal */}
+      <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-28 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center text-white"
           >
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 text-white/90 mb-8">
-              <Scale className="w-5 h-5 text-yellow-400" />
-              <span className="text-sm font-medium">Legal Services</span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="mb-4 sm:mb-6"
+            >
+              <p className="text-[#548caf] text-xs sm:text-sm font-medium uppercase tracking-wider">
+                Legal Services
+              </p>
+            </motion.div>
             
-            <h1 className="text-4xl lg:text-6xl font-display font-bold mb-6">
-              Professional <span className="text-steel-blue">Legal Services</span>
-            </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-gray-900 leading-tight mb-6 sm:mb-8 font-display"
+              style={{ fontFamily: 'var(--font-headline)' }}
+            >
+              Comprehensive legal solutions.
+            </motion.h1>
             
-            <p className="text-xl lg:text-2xl text-white/80 max-w-6xl mx-auto leading-relaxed mb-12">
-              Comprehensive legal solutions tailored to your unique needs. From corporate law to family matters, 
-              we provide expert representation with proven results.
-            </p>
-
-            <div className="flex justify-center">
-              <Button size="lg" className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer">
-                Get Legal Assessment
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed"
+              style={{ fontFamily: 'var(--font-body)' }}
+            >
+              We provide expert legal representation across multiple practice areas, delivering strategic counsel and proven results for businesses and individuals alike.
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Practice Areas Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Practice Areas Grid */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Scale className="w-4 h-4" />
-              <span>Practice Areas</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Our <span className="text-steel-blue">Legal Expertise</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4 font-display"
+                style={{ fontFamily: 'var(--font-headline)' }}>
+              Practice Areas
             </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              We specialize in multiple practice areas, providing comprehensive legal solutions 
-              tailored to your specific needs and circumstances.
+            <p className="text-base sm:text-lg text-gray-600 px-4"
+               style={{ fontFamily: 'var(--font-body)' }}>
+              Tailored expertise across diverse legal disciplines
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {practiceAreas.map((area, index) => {
               const Icon = area.icon;
               return (
@@ -337,299 +214,49 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group cursor-pointer"
-                  onClick={() => setSelectedService(area)}
+                  className="group"
                 >
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-steel-blue/30 group-hover:-translate-y-2 h-full">
-                    <div className="p-8">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${area.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      
-                      <h3 className="text-xl font-bold text-deep-navy group-hover:text-steel-blue transition-colors mb-4">
-                        {area.title}
-                      </h3>
-                      
-                      <p className="text-gray-600 leading-relaxed mb-6">
-                        {area.description}
-                      </p>
-                      
-                      <div className="space-y-2">
-                        {area.features.slice(0, 3).map((feature, idx) => (
-                          <div key={idx} className="flex items-center space-x-2 text-sm text-gray-600">
-                            <CheckCircle className="w-4 h-4 text-green-500" />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Legal Case Assessment Quiz */}
-      <section className="py-20 bg-light-gray">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Target className="w-4 h-4" />
-              <span>Assessment</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Legal Case <span className="text-steel-blue">Assessment Quiz</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Get personalized legal guidance by answering a few quick questions about your situation.
-            </p>
-          </motion.div>
-
-          <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
-            {!isQuizComplete ? (
-              <div>
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-2xl font-bold text-deep-navy">
-                    Question {currentQuizStep + 1} of {quizQuestions.length}
-                  </h3>
-                  <div className="flex space-x-2">
-                    {quizQuestions.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`w-3 h-3 rounded-full ${
-                          index <= currentQuizStep ? 'bg-steel-blue' : 'bg-gray-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mb-8">
-                  <h4 className="text-xl font-semibold text-deep-navy mb-6">
-                    {quizQuestions[currentQuizStep].question}
-                  </h4>
-                  
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {quizQuestions[currentQuizStep].options.map((option, index) => {
-                      const Icon = option.icon;
-                      return (
-                        <motion.button
-                          key={option.value}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => handleQuizAnswer(quizQuestions[currentQuizStep].id, option.value)}
-                          className="p-6 bg-gray-50 hover:bg-steel-blue/10 rounded-xl border border-gray-200 hover:border-steel-blue/30 transition-all duration-300 text-left group hover:cursor-pointer"
-                        >
-                          <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 bg-steel-blue/10 rounded-lg flex items-center justify-center group-hover:bg-steel-blue group-hover:text-white transition-colors duration-300">
-                              <Icon className="w-6 h-6" />
-                            </div>
-                            <span className="font-medium text-gray-900 group-hover:text-steel-blue transition-colors">
-                              {option.label}
-                            </span>
-                          </div>
-                        </motion.button>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="text-center">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="w-10 h-10 text-green-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-deep-navy mb-4">Assessment Complete!</h3>
-                <p className="text-gray-600 mb-8">
-                  Based on your answers, we recommend scheduling a consultation to discuss your legal needs in detail.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button className="bg-steel-blue hover:bg-steel-blue/90 text-white px-8 py-4 rounded-xl font-semibold">
-                    Schedule Consultation
-                    <Calendar className="w-5 h-5 ml-2" />
-                  </Button>
-                  <Button variant="outline" onClick={resetQuiz} className="border-steel-blue text-steel-blue hover:bg-steel-blue/10 px-8 py-4 rounded-xl font-semibold">
-                    Retake Assessment
-                  </Button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Service Descriptions */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <BookOpen className="w-4 h-4" />
-              <span>Service Details</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Detailed <span className="text-steel-blue">Service Descriptions</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Comprehensive legal services with clear processes and exceptional results.
-            </p>
-          </motion.div>
-
-          <div className="space-y-12">
-            {serviceDetails.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden"
-                >
-                  <div className="p-8 lg:p-12">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                      <div>
-                        <div className="flex items-center space-x-4 mb-6">
-                          <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center shadow-lg`}>
-                            <Icon className="w-8 h-8 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-deep-navy">{service.title}</h3>
-                            <p className="text-steel-blue font-medium">{service.category}</p>
-                          </div>
-                        </div>
-                        
-                        <p className="text-gray-600 leading-relaxed mb-6">
-                          {service.description}
-                        </p>
-                        
-                        <div className="mb-6">
-                          <div className="bg-gray-50 rounded-lg p-4">
-                            <div className="text-sm text-gray-500 mb-1">Typical Duration</div>
-                            <div className="font-semibold text-steel-blue">{service.duration}</div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-6">
-                        <div>
-                          <h4 className="text-lg font-semibold text-deep-navy mb-3">What We Include</h4>
-                          <div className="space-y-2">
-                            {service.features.map((feature, idx) => (
-                              <div key={idx} className="flex items-center space-x-2">
-                                <CheckCircle className="w-4 h-4 text-green-500" />
-                                <span className="text-gray-600">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h4 className="text-lg font-semibold text-deep-navy mb-3">Our Process</h4>
-                          <div className="space-y-2">
-                            {service.process.map((step, idx) => (
-                              <div key={idx} className="flex items-center space-x-2">
-                                <div className="w-6 h-6 bg-steel-blue/10 rounded-full flex items-center justify-center">
-                                  <span className="text-xs font-semibold text-steel-blue">{idx + 1}</span>
-                                </div>
-                                <span className="text-gray-600">{step}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Examples */}
-      <section className="py-20 bg-light-gray">
-        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Award className="w-4 h-4" />
-              <span>Case Studies</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Real <span className="text-steel-blue">Case Studies</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              See how we&apos;ve helped clients achieve successful outcomes in complex legal matters.
-            </p>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {caseStudies.map((study, index) => {
-              const Icon = study.icon;
-              return (
-                <motion.div
-                  key={study.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden group"
-                >
-                  <div className="p-8">
-                    <div className="flex items-center space-x-3 mb-6">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${study.color} rounded-xl flex items-center justify-center`}>
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-sm text-steel-blue font-medium">{study.category}</div>
-                        <div className="text-xs text-gray-500">{study.client}</div>
-                      </div>
-                    </div>
+                  <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-100 hover:border-[#548caf]/30 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                     
-                    <h3 className="text-lg font-bold text-deep-navy mb-4 group-hover:text-steel-blue transition-colors">
-                      {study.title}
+                    {/* Icon */}
+                    <div className="mb-5 sm:mb-6">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-[#548caf]/10 flex items-center justify-center group-hover:bg-[#548caf] group-hover:scale-110 transition-all duration-300">
+                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#548caf] group-hover:text-white transition-colors duration-300" />
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl sm:text-2xl font-light text-[#1a385c] mb-3 sm:mb-4 group-hover:text-[#548caf] transition-colors duration-300 font-display"
+                        style={{ fontFamily: 'var(--font-headline)' }}>
+                      {area.title}
                     </h3>
                     
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Challenge</h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">{study.challenge}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Solution</h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">{study.solution}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Result</h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">{study.result}</p>
-                      </div>
-                      
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <h4 className="text-sm font-semibold text-green-800 mb-2">Outcome</h4>
-                        <p className="text-sm text-green-700 leading-relaxed">{study.outcome}</p>
-                      </div>
+                    {/* Description */}
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-5 sm:mb-6 flex-grow"
+                       style={{ fontFamily: 'var(--font-body)' }}>
+                      {area.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="space-y-2 mb-5 sm:mb-6">
+                      {area.features.slice(0, 4).map((feature, idx) => (
+                        <div key={idx} className="flex items-start space-x-2">
+                          <div className="w-1 h-1 rounded-full bg-[#548caf] mt-2 flex-shrink-0" />
+                          <span className="text-sm text-gray-600"
+                                style={{ fontFamily: 'var(--font-body)' }}>
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Learn More */}
+                    <div className="pt-4 border-t border-gray-100">
+                      <span className="text-[#548caf] text-sm font-medium flex items-center group-hover:translate-x-1 transition-transform duration-300"
+                            style={{ fontFamily: 'var(--font-body)' }}>
+                        Learn more
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </span>
                     </div>
                   </div>
                 </motion.div>
@@ -639,162 +266,161 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Service Structure Information */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center space-x-2 bg-steel-blue/10 text-steel-blue px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Briefcase className="w-4 h-4" />
-              <span>Our Services</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-deep-navy mb-6">
-              Service <span className="text-steel-blue">Structure</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-6xl mx-auto leading-relaxed">
-              Flexible legal services tailored to your needs. Contact us for detailed pricing information.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 p-8"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-                <Clock className="w-8 h-8 text-white" />
-              </div>
-              
-              <h3 className="text-xl font-bold text-deep-navy mb-3">Hourly Rates</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">Standard billing for ongoing legal work</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-center py-2 border-b border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Senior Partner</span>
-                </div>
-                <div className="flex items-center py-2 border-b border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Associate Attorney</span>
-                </div>
-                <div className="flex items-center py-2">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Paralegal</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 p-8"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
-                <FileText className="w-8 h-8 text-white" />
-              </div>
-              
-              <h3 className="text-xl font-bold text-deep-navy mb-3">Fixed Fees</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">Predictable pricing for specific services</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-center py-2 border-b border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Business Formation</span>
-                </div>
-                <div className="flex items-center py-2 border-b border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Will & Testament</span>
-                </div>
-                <div className="flex items-center py-2">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Contract Review</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 p-8"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mb-6">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              
-              <h3 className="text-xl font-bold text-deep-navy mb-3">Contingency</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">Success-based arrangements</p>
-              
-              <div className="space-y-3">
-                <div className="flex items-center py-2 border-b border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Personal Injury</span>
-                </div>
-                <div className="flex items-center py-2 border-b border-gray-100">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Employment Disputes</span>
-                </div>
-                <div className="flex items-center py-2">
-                  <CheckCircle className="w-4 h-4 text-steel-blue mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">Business Litigation</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
+      {/* How We Work Section */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="text-center mb-12 sm:mb-16"
           >
-            <p className="text-gray-600 text-lg mb-6">
-              For detailed pricing and to discuss which service structure best fits your needs
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4 font-display"
+                style={{ fontFamily: 'var(--font-headline)' }}>
+              Our Approach
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 px-4"
+               style={{ fontFamily: 'var(--font-body)' }}>
+              A methodical process designed to deliver exceptional results and peace of mind
             </p>
-            <Button size="lg" className="bg-steel-blue hover:bg-steel-blue/90 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:cursor-pointer">
-              Contact Us for Pricing
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
           </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+            {[
+              {
+                number: "01",
+                title: "Consultation",
+                description: "We begin with a thorough understanding of your situation and objectives."
+              },
+              {
+                number: "02",
+                title: "Strategy",
+                description: "Develop a comprehensive legal strategy tailored to your specific needs."
+              },
+              {
+                number: "03",
+                title: "Execution",
+                description: "Implement the strategy with precision, keeping you informed throughout."
+              },
+              {
+                number: "04",
+                title: "Resolution",
+                description: "Achieve optimal outcomes while protecting your interests at every stage."
+              }
+            ].map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="mb-3 sm:mb-4">
+                  <span className="text-4xl sm:text-5xl font-light text-[#548caf]/20"
+                        style={{ fontFamily: 'var(--font-headline)' }}>
+                    {step.number}
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-light text-[#1a385c] mb-2 sm:mb-3 font-display"
+                    style={{ fontFamily: 'var(--font-headline)' }}>
+                  {step.title}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                   style={{ fontFamily: 'var(--font-body)' }}>
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-deep-navy via-steel-blue to-deep-navy">
-        <div className="max-w-7xl xl:max-w-6xl 2xl:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-white"
-          >
-            <h2 className="text-4xl lg:text-6xl font-display font-bold mb-6">
-              Ready to Get <span className="text-cyan-400">Started?</span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-white/80 mb-12 max-w-6xl mx-auto leading-relaxed">
-              Contact us today for a consultation and discover how our experienced team can help you achieve your legal goals.
-            </p>
-            
-            <div className="flex justify-center">
-              <Button size="lg" className="bg-white text-deep-navy hover:bg-white/90 px-8 py-5 rounded-2xl font-semibold text-lg group hover:cursor-pointer">
-                Schedule Consultation
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-          </motion.div>
+      {/* Why Choose Us Section */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 font-display"
+                  style={{ fontFamily: 'var(--font-headline)' }}>
+                Why choose Kochukov & Blume?
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8"
+                 style={{ fontFamily: 'var(--font-body)' }}>
+                Our commitment goes beyond legal representation. We invest in understanding your business, your challenges, and your goals to deliver counsel that truly serves your long-term interests.
+              </p>
+              
+              <div className="space-y-4 sm:space-y-6">
+                {[
+                  "Decades of combined experience across multiple jurisdictions",
+                  "Proven track record of successful outcomes",
+                  "Personalized attention and strategic counsel",
+                  "Transparent communication at every stage"
+                ].map((point, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start space-x-3"
+                  >
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#548caf] mt-1 flex-shrink-0" />
+                    <span className="text-sm sm:text-base text-gray-700"
+                          style={{ fontFamily: 'var(--font-body)' }}>
+                      {point}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-[#1a385c] rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 xl:p-12 text-white"
+            >
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-light mb-4 sm:mb-6 font-display"
+                  style={{ fontFamily: 'var(--font-headline)' }}>
+                Schedule a consultation
+              </h3>
+              <p className="text-sm sm:text-base text-white/80 mb-6 sm:mb-8 leading-relaxed"
+                 style={{ fontFamily: 'var(--font-body)' }}>
+                Discuss your legal needs with our experienced team. We&apos;ll help you understand your options and chart the best path forward.
+              </p>
+              
+              <Link href="/contact" className="inline-block">
+                <ThemeAnimatedButton 
+                  size="md"
+                  variant="primary"
+                  className="whitespace-nowrap rounded-xl w-full sm:w-auto"
+                >
+                  Get in touch
+                </ThemeAnimatedButton>
+              </Link>
+
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10">
+                <p className="text-xs sm:text-sm text-white/60 mb-2"
+                   style={{ fontFamily: 'var(--font-body)' }}>
+                  Office Hours
+                </p>
+                <p className="text-sm sm:text-base text-white/90"
+                   style={{ fontFamily: 'var(--font-body)' }}>
+                  Monday - Friday: 8:00 AM - 6:00 PM
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>
