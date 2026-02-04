@@ -14,7 +14,8 @@ import {
   X as XIcon
 } from "lucide-react";
 import { ThemeAnimatedButton } from "@/components/ui/button";
-import Link from "next/link";
+import Image from "next/image";
+import { david, justin, together } from "../../../public/index";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -183,7 +184,7 @@ export default function ContactPage() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="mb-4 sm:mb-6"
             >
-              <p className="text-[#548caf] text-xs sm:text-sm font-medium uppercase tracking-wider">
+              <p className="text-[#548caf] text-sm sm:text-base md:text-lg font-medium uppercase tracking-wider pl-2">
                 Get in Touch
               </p>
             </motion.div>
@@ -202,17 +203,17 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed pl-2"
               style={{ fontFamily: 'var(--font-body)' }}
             >
-              Whether you need immediate legal assistance or wish to schedule a consultation, our experienced team is ready to help you navigate your legal challenges.
+              Whether you need immediate legal assistance or wish to schedule a consultation, our experienced team is ready to help protect your interests and navigate your legal challenges.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Information Cards */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-200">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-16 sm:mb-20">
@@ -255,6 +256,143 @@ export default function ContactPage() {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Team Section */}
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4 font-display"
+                style={{ fontFamily: 'var(--font-headline)' }}>
+              Meet Our Team
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 px-4"
+               style={{ fontFamily: 'var(--font-body)' }}>
+              Get to know the attorneys who will be working with you
+            </p>
+          </motion.div>
+
+          <div className="space-y-16 sm:space-y-20 lg:space-y-24">
+            {/* David's Bio */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start"
+            >
+              {/* Photo */}
+              <div className="flex-shrink-0 w-full lg:w-64 xl:w-80">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src={david}
+                    alt="David Kochukov"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Bio */}
+              <div className="flex-1 space-y-4 sm:space-y-6">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-[#1a385c] mb-2 font-display"
+                      style={{ fontFamily: 'var(--font-headline)' }}>
+                    David Kochukov
+                  </h3>
+                  <p className="text-base sm:text-lg text-[#548caf] font-medium"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                    Admitted Attorney of the High Court of South Africa
+                  </p>
+                </div>
+                
+                <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                  <p>
+                    An Admitted Attorney of the High Court of South Africa, David&apos;s primary practice rests in Corporate and Commercial Law. His deepest pools of experience are in Liquidations, Business Rescues, Company Law, Construction Law, Restraint of Trade disputes, Arbitrations and Mediations, Debt Collections and General Civil Litigation. His passions in these sectors began brewing during his studies at the University of the Witwatersrand, where he obtained his LLB degree.
+                  </p>
+                  <p>
+                    David believes that knowledge of the law is fundamental to any successful business. He actively imparts this knowledge onto his Clients as he works diligently to secure their present interests, so that they are better equipped for the future. Working in tandem with his Clients, David leverages his experience to fight for the best outcome, ensuring that each attorney-client relationship with KB Inc. is cemented in the long-term to the mutual benefit of each party.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Justin's Bio */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start"
+            >
+              {/* Photo */}
+              <div className="flex-shrink-0 w-full lg:w-64 xl:w-80">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src={justin}
+                    alt="Justin Blume"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Bio */}
+              <div className="flex-1 space-y-4 sm:space-y-6">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-[#1a385c] mb-2 font-display"
+                      style={{ fontFamily: 'var(--font-headline)' }}>
+                    Justin Blume
+                  </h3>
+                  <p className="text-base sm:text-lg text-[#548caf] font-medium"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                    Admitted Attorney of the High Court of South Africa
+                  </p>
+                </div>
+                
+                <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                  <p>
+                    Justin is an Admitted Attorney of the High Court of South Africa, starting his legal journey as a paralegal in a renowned boutique law firm while in the process of completing his degree, and thereafter completing his articles.
+                  </p>
+                  <p>
+                    During his time, Justin developed his passion and focus in Corporate and Commercial Law, whilst remaining committed to garnering knowledge and skills in Family Law, Insolvency and Business Rescue, Dispute Resolution, and Debt Collection.
+                  </p>
+                  <p>
+                    Committed to providing his clients with the service they need, Justin takes a collaborative approach to legal work, working alongside his clients to understand their objectives and support their growth in a practical and considered way, and remains committed to his clients long term needs.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Together Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex justify-center pt-8 sm:pt-12"
+            >
+              <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src={together}
+                  alt="David Kochukov and Justin Blume"
+                  width={1200}
+                  height={800}
+                  className="object-cover w-full h-auto"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -350,7 +488,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+      <section className="py-16 sm:py-20 lg:py-28 bg-white">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
           
           <motion.div
@@ -652,7 +790,7 @@ export default function ContactPage() {
       </section>
 
       {/* Office Location Section */}
-      <section id="location" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-50/50 to-white">
+      <section id="location" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-200">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24">
           
           <motion.div
@@ -782,14 +920,14 @@ export default function ContactPage() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-4 sm:mb-6 font-display"
                 style={{ fontFamily: 'var(--font-headline)' }}>
-              Prefer to speak directly?
+              Prefer to speak to us directly?
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 leading-relaxed"
                style={{ fontFamily: 'var(--font-body)' }}>
               Call us now for immediate assistance or to schedule a consultation
             </p>
             
-            <a href="tel:0103000247">
+            <a href="tel:0103000247" className="inline-block">
               <ThemeAnimatedButton 
                 size="lg"
                 variant="primary"

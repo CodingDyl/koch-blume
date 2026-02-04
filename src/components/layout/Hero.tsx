@@ -7,16 +7,16 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center bg-white overflow-hidden">
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-16 sm:py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 xl:gap-32 items-center">
+    <section className="relative w-full bg-white overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
           
           {/* Left Section - Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="space-y-6 sm:space-y-8 relative z-20"
+            className="space-y-5 sm:space-y-6 relative z-20"
           >
             {/* Main Headline */}
             <motion.h1
@@ -34,15 +34,15 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="space-y-4 sm:space-y-6"
+              className="space-y-3 sm:space-y-4"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                We believe great counsel is built on fidelity, true partnership and genuine understanding. Your success is our business and so we invest fully in your long-term growth, working together your trenches, navigate obstacles and protecting your interests.
+                We believe great legal counsel is built on trust, partnership, and a deep understanding of our clients&apos; objectives. At Kochukov and Blume Inc., we work closely with you to navigate legal complexity, protect your interests, and support informed decision-making.
               </p>
               
               <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                When your business grows, ours does too.
+                Your success drives our work - and as your business grows, so does ours.
               </p>
             </motion.div>
 
@@ -68,15 +68,15 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="relative hidden lg:flex items-end justify-end mt-8 lg:mt-0 z-10"
+            className="relative hidden lg:flex items-center justify-end z-10"
           >
-            <div className="relative w-full h-[600px] lg:h-[800px] xl:h-[900px] 2xl:h-[1000px] flex items-end justify-end">
+            <div className="relative w-full h-[450px] lg:h-[500px] xl:h-[550px] 2xl:h-[600px] flex items-center justify-end">
               <Image
                 src="/images/hero_logo.png"
                 alt="Geometric design"
-                width={1100}
-                height={1100}
-                className="object-contain w-full h-full scale-110"
+                width={900}
+                height={900}
+                className="object-contain w-full h-full"
                 priority
               />
             </div>

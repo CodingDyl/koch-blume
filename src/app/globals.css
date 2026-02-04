@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -14,9 +14,9 @@
   --color-medium-gray: #e9ecef;
   
       /* Typography */
-      --font-headline: 'Playfair Display', 'Canela', 'Noe Display', serif;
-      --font-body: 'Inter', 'Source Sans Pro', sans-serif;
-      --font-display: 'Playfair Display', 'Canela', 'Noe Display', serif;
+      --font-headline: 'Merriweather', 'Georgia', serif;
+      --font-body: 'Montserrat', 'Inter', sans-serif;
+      --font-display: 'Merriweather', 'Georgia', serif;
   
   /* Spacing Scale */
   --spacing-xs: 0.25rem;   /* 4px */
@@ -64,10 +64,10 @@
   --color-light-blue: #f3f9fc;
   
       /* Typography */
-      --font-sans: 'Inter', 'Source Sans Pro', sans-serif;
-      --font-display: 'Playfair Display', 'Canela', 'Noe Display', serif;
-      --font-headline: 'Playfair Display', 'Canela', 'Noe Display', serif;
-      --font-body: 'Inter', 'Source Sans Pro', sans-serif;
+      --font-sans: 'Montserrat', 'Inter', sans-serif;
+      --font-display: 'Merriweather', 'Georgia', serif;
+      --font-headline: 'Merriweather', 'Georgia', serif;
+      --font-body: 'Montserrat', 'Inter', sans-serif;
   
   /* Font Sizes */
   --font-size-hero: 4.5rem;
@@ -120,6 +120,35 @@
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.02em;
+  }
+  
+  /* Headings - All use Merriweather */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  
+  h1 {
+    font-weight: 700;
+  }
+  
+  h2, h3 {
+    font-weight: 700;
+  }
+  
+  h4, h5, h6 {
+    font-weight: 700;
+  }
+  
+  /* Body Text - All use Montserrat */
+  p, a, span, label, li, td, th, input, textarea, select, button {
+    font-family: var(--font-body);
+  }
+  
+  /* Ensure small text elements use Montserrat */
+  .text-xs, .text-sm, .text-base, .text-lg {
+    font-family: var(--font-body);
   }
   
   /* Professional Button Styles */

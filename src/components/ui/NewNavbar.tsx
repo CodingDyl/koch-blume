@@ -57,33 +57,37 @@ export default function NewNavbar() {
       {/* Main Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isMenuOpen
-            ? 'bg-deep-navy'
-            : isScrolled 
-            ? 'bg-gradient-to-r from-white via-white to-deep-navy/70 backdrop-blur-md shadow-sm' 
-            : 'bg-white'
+          isMenuOpen 
+            ? 'bg-deep-navy' 
+            : 'bg-gradient-to-r from-white via-white to-deep-navy/70'
+        } ${
+          isScrolled ? 'backdrop-blur-md shadow-sm' : ''
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             
             {/* Logo with Text */}
-            <Link href="/" className="relative z-50 flex items-center gap-2 sm:gap-3">
+            <Link href="/" className="relative z-50 flex items-center gap-2 sm:gap-3 md:gap-4">
               <Image
                 src="/images/kb_logo.png"
                 alt="Kochukov & Blume Law Firm"
-                width={80}
-                height={80}
-                className="h-12 sm:h-16 w-auto object-contain transition-all duration-300 hover:scale-105"
+                width={100}
+                height={100}
+                className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-all duration-300 hover:scale-105"
                 priority
               />
+              {/* Vertical Divider */}
+              <div className={`h-8 sm:h-12 md:h-14 lg:h-16 w-px transition-colors duration-300 ${
+                isMenuOpen ? 'bg-white/30' : 'bg-[#2c4a7c]/30'
+              }`}></div>
               <div className="flex flex-col">
-                <span className={`text-sm sm:text-lg md:text-xl font-light tracking-wide uppercase transition-colors duration-300 ${
+                <span className={`text-sm sm:text-base md:text-xl lg:text-2xl font-light tracking-widest uppercase transition-colors duration-300 ${
                   isMenuOpen ? 'text-white' : 'text-[#2c4a7c]'
                 }`}>
                   Kochukov & Blume
                 </span>
-                <span className={`text-[10px] sm:text-xs md:text-sm font-light tracking-widest uppercase transition-colors duration-300 ${
+                <span className={`text-[10px] sm:text-xs md:text-sm lg:text-base font-light tracking-widest uppercase transition-colors duration-300 ${
                   isMenuOpen ? 'text-white' : 'text-[#2c4a7c]'
                 }`}>
                   Incorporated
@@ -94,15 +98,13 @@ export default function NewNavbar() {
             {/* Menu Button */}
             <button
               onClick={toggleMenu}
-              className={`relative z-50 flex flex-col items-center justify-center w-10 h-10 sm:w-12 sm:h-12 focus:outline-none group hover:cursor-pointer transition-colors duration-300 touch-manipulation ${
-                isMenuOpen ? 'text-white' : 'text-[#2c4a7c]'
-              }`}
+              className="relative z-50 flex flex-col items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 focus:outline-none group hover:cursor-pointer transition-colors duration-300 touch-manipulation text-white"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
               
               {/* Hamburger/Close Icon */}
-              <div className="relative w-5 h-4 sm:w-6 sm:h-5 flex flex-col justify-center">
+              <div className="relative w-5 h-4 sm:w-6 sm:h-5 md:w-7 md:h-6 lg:w-8 lg:h-7 flex flex-col justify-center">
                 <span
                   className={`absolute h-0.5 w-full bg-current transform transition-all duration-300 ease-in-out ${
                     isMenuOpen ? 'rotate-45 top-1/2 -translate-y-1/2' : 'top-0'
@@ -121,7 +123,7 @@ export default function NewNavbar() {
               </div>
 
               {/* Menu Text */}
-              <span className={`text-[10px] sm:text-xs font-medium mt-1 sm:mt-1.5 transition-opacity duration-300 ${
+              <span className={`text-[10px] sm:text-xs md:text-sm lg:text-base font-medium mt-1 sm:mt-1.5 transition-opacity duration-300 ${
                 isMenuOpen ? 'opacity-0' : 'opacity-100'
               }`}>
                 Menu

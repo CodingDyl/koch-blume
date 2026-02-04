@@ -57,7 +57,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 md:py-32 lg:py-40 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden" id="testimonials">
+    <section className="py-20 md:py-32 lg:py-40 bg-white relative overflow-hidden" id="testimonials">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 bg-[url('/images/background.png')] bg-cover bg-center opacity-5"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent"></div>
