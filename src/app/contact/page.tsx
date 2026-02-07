@@ -30,15 +30,9 @@ export default function ContactPage() {
   const [formErrors, setFormErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isDragging, setIsDragging] = useState(false);
 
-  // Available consultation times
-  const availableTimes = [
-    "09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "03:00 PM", "04:00 PM"
-  ];
 
   // Contact information
   const contactInfo = [
@@ -149,23 +143,40 @@ export default function ContactPage() {
     
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-      preferredContact: 'email',
-      practiceArea: ''
-    });
-    setUploadedFiles([]);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        preferredContact: 'email',
+        practiceArea: ''
+      });
+      setUploadedFiles([]);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      alert('Failed to send message. Please try again or contact us directly.');
+    }
   };
 
   return (
@@ -427,60 +438,28 @@ export default function ContactPage() {
               className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg p-6 sm:p-8 lg:p-10"
             >
               <div className="space-y-6 sm:space-y-8">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3"
-                         style={{ fontFamily: 'var(--font-body)' }}>
-                    Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={(e) => setSelectedDate(e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 sm:py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#548caf] focus:border-transparent text-sm sm:text-base"
+                <div className="text-center py-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                    Schedule a consultation at a time that works for you
+                  </p>
+                  
+                  <a
+                    href={process.env.NEXT_PUBLIC_CAL_BOOKING_URL || 'https://cal.com'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#548caf] text-white rounded-xl hover:bg-[#548caf]/90 transition-all duration-200 text-base font-medium shadow-lg hover:shadow-xl"
                     style={{ fontFamily: 'var(--font-body)' }}
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3"
-                         style={{ fontFamily: 'var(--font-body)' }}>
-                    Preferred Time
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                    {availableTimes.map((time) => (
-                      <button
-                        key={time}
-                        type="button"
-                        onClick={() => setSelectedTime(time)}
-                        className={`w-full px-4 py-3 sm:py-4 rounded-xl border-2 transition-all duration-200 text-sm sm:text-base font-medium whitespace-nowrap ${
-                          selectedTime === time
-                            ? 'border-[#548caf] bg-[#548caf] text-white'
-                            : 'border-gray-200 text-gray-700 hover:border-[#548caf] hover:bg-[#548caf]/5'
-                        }`}
-                        style={{ fontFamily: 'var(--font-body)' }}
-                      >
-                        {time}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {selectedDate && selectedTime && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="pt-4"
                   >
-                    <button 
-                      className="w-full px-6 py-4 bg-[#548caf] text-white rounded-xl hover:bg-[#548caf]/90 transition-colors duration-200 text-base font-medium flex items-center justify-center gap-2"
-                      style={{ fontFamily: 'var(--font-body)' }}
-                    >
-                      Confirm Booking
-                      <Calendar className="w-5 h-5" />
-                    </button>
-                  </motion.div>
-                )}
+                    Book Your Consultation
+                    <Calendar className="w-5 h-5" />
+                  </a>
+                  
+                  <p className="text-center text-sm text-gray-500 mt-4"
+                     style={{ fontFamily: 'var(--font-body)' }}>
+                    You&apos;ll be redirected to our scheduling page
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>

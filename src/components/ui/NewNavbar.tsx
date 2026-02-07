@@ -82,12 +82,12 @@ export default function NewNavbar() {
                 isMenuOpen ? 'bg-white/30' : 'bg-[#2c4a7c]/30'
               }`}></div>
               <div className="flex flex-col">
-                <span className={`text-sm sm:text-base md:text-xl lg:text-2xl font-light tracking-widest uppercase transition-colors duration-300 ${
+                <span className={`font-sackers text-sm sm:text-base md:text-xl lg:text-2xl font-light tracking-widest uppercase transition-colors duration-300 ${
                   isMenuOpen ? 'text-white' : 'text-[#2c4a7c]'
                 }`}>
                   Kochukov & Blume
                 </span>
-                <span className={`text-[10px] sm:text-xs md:text-sm lg:text-base font-light tracking-widest uppercase transition-colors duration-300 ${
+                <span className={`font-sackers text-[10px] sm:text-xs md:text-sm lg:text-base font-light tracking-widest uppercase transition-colors duration-300 ${
                   isMenuOpen ? 'text-white' : 'text-[#2c4a7c]'
                 }`}>
                   Incorporated

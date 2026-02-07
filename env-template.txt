@@ -1,0 +1,32 @@
+# ===========================================
+# ENVIRONMENT VARIABLES TEMPLATE
+# ===========================================
+# Copy this content to a new file named .env.local
+# Replace all placeholder values with your actual values
+# ===========================================
+
+# Resend API Key
+# Get from: https://resend.com/api-keys
+RESEND_API_KEY=re_your_actual_api_key_here
+
+# Email that receives contact form submissions
+CONTACT_EMAIL=info@kblegal.co.za
+
+# From email address
+# Use onboarding@resend.dev for testing (works immediately)
+# Use noreply@kblegal.co.za after domain verification
+FROM_EMAIL=onboarding@resend.dev
+
+# Cal.com Booking URL
+# Get from: Your Cal.com event type page
+# Example: https://cal.com/kochukov-blume/consultation
+NEXT_PUBLIC_CAL_BOOKING_URL=https://cal.com/username/consultation
+
+# ===========================================
+# INSTRUCTIONS:
+# 1. Create a file named .env.local in the project root
+# 2. Copy the above content into it
+# 3. Replace all placeholder values
+# 4. Save the file
+# 5. Restart your dev server: npm run dev
+# ===========================================

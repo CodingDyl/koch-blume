@@ -2,6 +2,23 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Sackers Gothic Font */
+@font-face {
+  font-family: 'Sackers Gothic';
+  src: url('/fonts/sackersgothicstd-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sackers Gothic';
+  src: url('/fonts/sackersgothicstd-heavy.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /* Legal Firm Design System */
@@ -14,9 +31,10 @@
   --color-medium-gray: #e9ecef;
   
       /* Typography */
-      --font-headline: 'Merriweather', 'Georgia', serif;
+      --font-headline: 'Sackers Gothic', 'Helvetica Neue', sans-serif;
       --font-body: 'Montserrat', 'Inter', sans-serif;
-      --font-display: 'Merriweather', 'Georgia', serif;
+      --font-display: 'Sackers Gothic', 'Helvetica Neue', sans-serif;
+      --font-sackers: 'Sackers Gothic', 'Helvetica Neue', sans-serif;
   
   /* Spacing Scale */
   --spacing-xs: 0.25rem;   /* 4px */
@@ -65,9 +83,10 @@
   
       /* Typography */
       --font-sans: 'Montserrat', 'Inter', sans-serif;
-      --font-display: 'Merriweather', 'Georgia', serif;
-      --font-headline: 'Merriweather', 'Georgia', serif;
+      --font-display: 'Sackers Gothic', 'Helvetica Neue', sans-serif;
+      --font-headline: 'Sackers Gothic', 'Helvetica Neue', sans-serif;
       --font-body: 'Montserrat', 'Inter', sans-serif;
+      --font-sackers: 'Sackers Gothic', 'Helvetica Neue', sans-serif;
   
   /* Font Sizes */
   --font-size-hero: 4.5rem;
@@ -119,14 +138,19 @@
   .font-display {
     font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
   }
   
-  /* Headings - All use Merriweather */
+  .font-sackers {
+    font-family: var(--font-sackers);
+    letter-spacing: 0.02em;
+  }
+  
+  /* Headings - All use Sackers Gothic */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headline);
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
   }
   
   h1 {
