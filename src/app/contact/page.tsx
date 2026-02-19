@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { ThemeAnimatedButton } from "@/components/ui/button";
 import Image from "next/image";
-import { david, justin, together } from "../../../public/index";
+import { david, justin } from "../../../public/index";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ export default function ContactPage() {
       title: "Phone",
       value: "010 300 0247",
       href: "tel:0103000247",
-      description: "Monday - Friday, 8:00 AM - 6:00 PM"
+      description: "Monday - Friday, 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 1:00 PM"
     },
     {
       icon: Mail,
@@ -259,7 +259,7 @@ export default function ContactPage() {
                       {contact.value}
                     </p>
 
-                    <p className="text-sm text-gray-600"
+                    <p className="text-sm text-gray-600 whitespace-pre-line"
                        style={{ fontFamily: 'var(--font-body)' }}>
                       {contact.description}
                     </p>
@@ -386,7 +386,7 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            {/* Together Image */}
+            {/* Together Image
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -403,7 +403,7 @@ export default function ContactPage() {
                   className="object-cover w-full h-auto"
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>
@@ -829,7 +829,7 @@ export default function ContactPage() {
                     <div className="text-sm sm:text-base text-gray-600 space-y-1"
                          style={{ fontFamily: 'var(--font-body)' }}>
                       <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                      <p>Saturday: By appointment only</p>
+                      <p>Saturday: 9:00 AM - 1:00 PM</p>
                       <p>Sunday: Closed</p>
                     </div>
                   </div>
@@ -885,6 +885,24 @@ export default function ContactPage() {
               </div>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-10 sm:mt-12 lg:mt-16 bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-lg overflow-hidden"
+          >
+            <div className="relative w-full h-64 sm:h-80 lg:h-[420px]">
+              <iframe
+                title="Kochukov & Blume Office Location"
+                src="https://www.google.com/maps?q=1st%20Floor,%20145%20Second%20St,%20Sandton,%20Johannesburg%202196,%20South%20Africa&output=embed"
+                className="absolute inset-0 w-full h-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 

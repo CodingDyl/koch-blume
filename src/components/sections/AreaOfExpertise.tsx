@@ -23,39 +23,57 @@ export default function AreaOfExpertise({
     {
       icon: "/icons/corporate.png",
       title: "Corporate Law",
-      description: "Strategic legal counsel for businesses of all sizes, from startups to Fortune 500 companies.",
-      features: ["M&A Transactions", "Corporate Governance", "Compliance", "Contract Negotiation"]
+      description: "Strategic legal counsel for businesses of all sizes, from startups to multinational companies.",
+      features: ["Corporate Structuring Transactions", "Corporate Governance", "Compliance", "Contract Negotiation"]
     },
     {
       icon: "/icons/family.png",
       title: "Family Law",
-      description: "Compassionate representation in divorce, custody, and family matters with proven results.",
-      features: ["Divorce & Separation", "Child Custody", "Property Division", "Mediation"]
+      description: "Compassionate representation in divorce, custody, and family matters.",
+      features: ["Divorce & Separation", "Care and Contact", "Property Division", "Mediation"]
     },
     {
       icon: "/icons/construction.png",
-      title: "Real Estate Law",
-      description: "Expert guidance through complex property transactions and real estate disputes.",
-      features: ["Property Transactions", "Commercial Leases", "Zoning Issues", "Title Disputes"]
-    },
-    {
-      icon: "/icons/criminal.png",
-      title: "Criminal Defense",
-      description: "Aggressive defense strategies to protect your rights and secure the best possible outcome.",
-      features: ["DUI Defense", "White Collar Crime", "Drug Offenses", "Appeals"]
+      title: "Property Law",
+      description: "Expert guidance through property transactions and real estate disputes.",
+      features: ["Commercial Leases", "Commercial Leases", "Rental and Levy Recovery", "Body Corporate Disputes"]
     },
     {
       icon: "/icons/commercial.png",
-      title: "Business Litigation",
+      title: "Commercial Litigation",
       description: "Skilled representation in commercial disputes and complex business litigation matters.",
-      features: ["Contract Disputes", "Partnership Issues", "Employment Law", "IP Litigation"]
+      features: ["Contract Disputes", "Stakeholder Disputes", "Recovery Proceedings", "Unlawful Competition & Restraints"]
     },
     {
       icon: "/icons/estate.png",
       title: "Estate Planning",
       description: "Comprehensive estate planning to protect your assets and secure your family's future.",
-      features: ["Wills & Trusts", "Tax Planning", "Asset Protection", "Probate"]
-    }
+      features: ["Wills & Trusts", "Estate Structuring", "Succession Planning", "Probate"]
+    },
+    {
+      icon: "/icons/commercial.png",
+      title: "Labour Law",
+      description: "Proactive and decisive consultation on employment matters, from commencement to termination.",
+      features: ["Employment Contracts", "Workplace Policies", "Disciplinary Processes", "Termination & Retrenchment"]
+    },
+    {
+      icon: "/icons/corporate.png",
+      title: "Insolvency and Business Rescue",
+      description: "Results-driven and considered advice on financial distress, restructuring, and recovery strategies.",
+      features: ["Business Rescue", "Liquidations", "Restructuring Plans", "Creditor Negotiations"]
+    },
+    {
+      icon: "/icons/estate.png",
+      title: "Debt Collection",
+      description: "Strategic and efficient legal solutions for the recovery of debt and enforcement of contractual and statutory rights.",
+      features: ["Pre-Litigation Demands", "Recovery Proceedings", "Judgment Enforcement", "Settlement Negotiations"]
+    },
+    {
+      icon: "/icons/criminal.png",
+      title: "Criminal Defense",
+      description: "Robust defense strategies to protect your rights and secure the best possible outcome.",
+      features: ["Bail Applications", "Commercial Crimes", "Appeals", "Criminal Record Expungement"]
+    },
   ];
 
   return (

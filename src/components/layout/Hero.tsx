@@ -38,7 +38,7 @@ export default function Hero() {
               style={{ fontFamily: 'var(--font-body)' }}
             >
               <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                We believe great legal counsel is built on trust, partnership, and a deep understanding of our clients&apos; objectives. At Kochukov and Blume Inc., we work closely with you to navigate legal complexity, protect your interests, and support informed decision-making.
+                We believe great legal counsel is built on trust, partnership, and a deep understanding of our clients&apos; objectives. At Kochukov &amp; Blume Incorporated, we work closely with you to navigate legal complexity, protect your interests, and support informed decision-making.
               </p>
               
               <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
@@ -70,13 +70,13 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="relative hidden lg:flex items-center justify-end z-10"
           >
-            <div className="relative w-full h-[450px] lg:h-[500px] xl:h-[550px] 2xl:h-[600px] flex items-center justify-end">
+            <div className="relative w-full h-[800px] lg:h-[800px] xl:h-[900px] 2xl:h-[1000px] flex items-center justify-end">
               <Image
                 src="/images/hero_logo.png"
                 alt="Geometric design"
-                width={900}
-                height={900}
-                className="object-contain w-full h-full"
+                width={1200}
+                height={1200}
+                className="object-contain h-full w-[120%] max-w-none opacity-20"
                 priority
               />
             </div>

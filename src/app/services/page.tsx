@@ -89,7 +89,7 @@ export default function ServicesPage() {
               {
                 number: "01",
                 title: "Consultation",
-                description: "We begin with a thorough understanding of your situation and objectives."
+                description: "We begin with a thorough understanding of your requirements and objectives."
               },
               {
                 number: "02",

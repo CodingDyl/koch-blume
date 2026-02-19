@@ -67,32 +67,17 @@ export default function NewNavbar() {
         <div className="max-w mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             
-            {/* Logo with Text */}
-            <Link href="/" className="relative z-50 flex items-center gap-2 sm:gap-3 md:gap-4">
+            {/* Logo */}
+            <Link href="/" className="relative z-50 flex items-center">
               <Image
-                src="/images/kb_logo.png"
+                src="/images/nav_logo.png"
                 alt="Kochukov & Blume Law Firm"
-                width={100}
-                height={100}
-                className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-all duration-300 hover:scale-105"
+                width={640}
+                height={200}
+                sizes="(min-width: 1280px) 520px, (min-width: 1024px) 460px, (min-width: 768px) 380px, (min-width: 640px) 320px, 260px"
+                className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300 hover:scale-105"
                 priority
               />
-              {/* Vertical Divider */}
-              <div className={`h-8 sm:h-12 md:h-14 lg:h-16 w-px transition-colors duration-300 ${
-                isMenuOpen ? 'bg-white/30' : 'bg-[#2c4a7c]/30'
-              }`}></div>
-              <div className="flex flex-col">
-                <span className={`font-sackers text-sm sm:text-base md:text-xl lg:text-2xl font-light tracking-widest uppercase transition-colors duration-300 ${
-                  isMenuOpen ? 'text-white' : 'text-[#2c4a7c]'
-                }`}>
-                  Kochukov & Blume
-                </span>
-                <span className={`font-sackers text-[10px] sm:text-xs md:text-sm lg:text-base font-light tracking-widest uppercase transition-colors duration-300 ${
-                  isMenuOpen ? 'text-white' : 'text-[#2c4a7c]'
-                }`}>
-                  Incorporated
-                </span>
-              </div>
             </Link>
 
             {/* Menu Button */}

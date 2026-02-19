@@ -19,21 +19,21 @@ export default function AboutPage() {
     {
       name: "David Kochukov",
       title: "Senior Partner",
-      subtitle: "Admitted Attorney of the High Court of South Africa",
+      subtitle: "Admitted Attorney of the High Court | Director",
       specialization: "Corporate and Commercial Law",
       experience: "Liquidations, Business Rescues, Company Law, Construction Law, Restraint of Trade disputes, Arbitrations and Mediations, Debt Collections and General Civil Litigation",
-      education: "LLB (University of the Witwatersrand)",
-      bio: "An Admitted Attorney of the High Court of South Africa, David's primary practice rests in Corporate and Commercial Law. His deepest pools of experience are in Liquidations, Business Rescues, Company Law, Construction Law, Restraint of Trade disputes, Arbitrations and Mediations, Debt Collections and General Civil Litigation. His passions in these sectors began brewing during his studies at the University of the Witwatersrand, where he obtained his LLB degree. David believes that knowledge of the law is fundamental to any successful business. He actively imparts this knowledge onto his Clients as he works diligently to secure their present interests, so that they are better equipped for the future. Working in tandem with his Clients, David leverages his experience to fight for the best outcome, ensuring that each attorney-client relationship with KB Inc. is cemented in the long-term to the mutual benefit of each party.",
+      education: "BA(LLB)",
+      bio: "As an Admitted Attorney of the High Court, David's primary practice rests in Corporate and Commercial Law. His deepest pools of experience are in Liquidations, Business Rescues, Company Law, Construction Law, Restraint of Trade disputes, Arbitrations and Mediations, Debt Collection and General Civil Litigation. His passions in these sectors began during his studies at the University of the Witwatersrand, where he obtained his LLB degree. David believes that knowledge of the law is fundamental to any successful business. He actively imparts this knowledge onto his clients as he works diligently to secure their present interests so that they are better equipped for the future. Working in tandem with his clients, David leverages his experience to fight for the best outcome, ensuring that each attorney-client relationship with KB Incorporated is cemented in the long-term, and to the mutual benefit of each party.",
       image: david
     },
     {
       name: "Justin Blume",
       title: "Senior Partner", 
-      subtitle: "Admitted Attorney of the High Court of South Africa",
+      subtitle: "Admitted Attorney of the High Court | Director",
       specialization: "Corporate and Commercial Law, Family Law, Insolvency and Business Rescue",
       experience: "Corporate and Commercial Law, Family Law, Insolvency and Business Rescue, Dispute Resolution, and Debt Collection",
       education: "LLB",
-      bio: "Justin is an Admitted Attorney of the High Court of South Africa, starting his legal journey as a paralegal in a renowned boutique law firm while in the process of completing his degree, and thereafter completing his articles. During his time, Justin developed his passion and focus in Corporate and Commercial Law, whilst remaining committed to garnering knowledge and skills in Family Law, Insolvency and Business Rescue, Dispute Resolution, and Debt Collection. Committed to providing his clients with the service they need, Justin takes a collaborative approach to legal work, working alongside his clients to understand their objectives and support their growth in a practical and considered way, and remains committed to his clients long term needs.",
+      bio: "Justin is an Admitted Attorney of the High Court, having started his legal journey as a paralegal in a renowned boutique law firm while in the process of completing his degree, and thereafter completing his articles. During this time, Justin developed his passion and focus in Corporate and Commercial Law, whilst remaining committed to garnering knowledge and skills in Family Law, Insolvency and Business Rescue, Dispute Resolution, and Debt Collection. Committed to providing his clients with the best possible service, Justin takes a collaborative approach to legal work by working alongside his clients to understand their objectives and support their growth in a practical and considered way, all the while considering and prioritising his clients’ long term needs.",
       image: justin
     }
   ];
@@ -100,7 +100,7 @@ export default function AboutPage() {
               className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed pl-2"
               style={{ fontFamily: 'var(--font-body)' }}
             >
-              Kochukov & Blume Inc. has established itself as a trusted South African law firm, recognised for delivering clear, considered legal advice with integrity and precision. We are committed to excellence in every matter we handle, combining technical expertise with a practical, client-focused approach. 
+              Kochukov &amp; Blume Incorporated has established itself as a trusted South African law firm, recognised for delivering clear, considered legal advice with integrity and precision. We are committed to excellence in every matter we handle, combining technical expertise with a practical, client-focused approach. 
             </motion.p>
           </motion.div>
         </div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
               <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-gray-600 leading-relaxed"
                    style={{ fontFamily: 'var(--font-body)' }}>
                 <p>
-                  Kochukov & Blume Inc. was founded with a clear purpose: to make high-quality legal services available and accessible.  From our beginnings as a boutique practice in Sandton, the firm has grown into a respected legal partner with over 10 years of combined experience. 
+                Kochukov &amp; Blume Incorporated was founded with a clear purpose: to make high-quality legal services available and accessible.  From our beginnings as a boutique practice in Sandton, the firm has grown into a respected legal partner. 
                 </p>
                 <p>
                   We work closely with our clients to understand the context of their legal challenges, offering honest judgment, direct communication, and solutions that support informed decision-making and sustainable growth.
@@ -229,7 +229,7 @@ export default function AboutPage() {
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3 sm:mb-4 font-display"
                 style={{ fontFamily: 'var(--font-headline)' }}>
-              Meet our team
+              Meet our Co-Founders
             </h2>
             <p className="text-base sm:text-lg text-gray-600 px-4"
                style={{ fontFamily: 'var(--font-body)' }}>
@@ -279,18 +279,6 @@ export default function AboutPage() {
                   
                   <div className="p-6 sm:p-8 flex-grow flex flex-col">
                     <div className="space-y-6 flex-grow">
-                      {/* Specialization */}
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-900 mb-2"
-                            style={{ fontFamily: 'var(--font-body)' }}>
-                          Specialization
-                        </h4>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed"
-                           style={{ fontFamily: 'var(--font-body)' }}>
-                          {attorney.specialization}
-                        </p>
-                      </div>
-
                       {/* Experience */}
                       <div>
                         <h4 className="text-sm font-medium text-gray-900 mb-2"
@@ -299,6 +287,8 @@ export default function AboutPage() {
                         </h4>
                         <p className="text-sm sm:text-base text-gray-600 leading-relaxed"
                            style={{ fontFamily: 'var(--font-body)' }}>
+                          {attorney.specialization}
+                          {attorney.specialization && attorney.experience ? ", " : ""}
                           {attorney.experience}
                         </p>
                       </div>
@@ -336,7 +326,7 @@ export default function AboutPage() {
                             src={attorney.image}
                             alt={attorney.name}
                             fill
-                            className="object-cover scale-130 object-top"
+                            className="object-cover scale-110 object-center"
                           />
                         </div>
                       </div>

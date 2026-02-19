@@ -8,16 +8,9 @@ import {
   Mail, 
   MapPin, 
   Clock, 
-  Facebook, 
-  Twitter, 
   Linkedin, 
   Instagram,
-  ArrowUpRight,
-  Scale,
-  Shield,
-  FileText,
-  Users,
-  ArrowRight
+  ArrowUpRight
 } from "lucide-react";
 import { ThemeAnimatedButton } from "@/components/ui/button";
 
@@ -37,9 +30,6 @@ export default function Footer() {
       { name: "About Us", href: "/about" },
       { name: "Our Team", href: "/about#team" },
       { name: "Testimonials", href: "/#testimonials" },
-      { name: "Case Studies", href: "/about#cases" },
-      { name: "Careers", href: "/careers" },
-      { name: "News & Insights", href: "/news" },
     ],
     resources: [
       { name: "Legal Resources", href: "/resources" },
@@ -52,10 +42,8 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "#", color: "hover:text-blue-600" },
-    { name: "Twitter", icon: Twitter, href: "#", color: "hover:text-sky-500" },
-    { name: "LinkedIn", icon: Linkedin, href: "#", color: "hover:text-blue-700" },
-    { name: "Instagram", icon: Instagram, href: "#", color: "hover:text-pink-600" },
+    { name: "LinkedIn", icon: Linkedin, href: "#", color: "hover:text-blue-500" },
+    { name: "Instagram", icon: Instagram, href: "#", color: "hover:text-blue-500" },
   ];
 
   const contactInfo = [
@@ -98,34 +86,22 @@ export default function Footer() {
             className="lg:col-span-1 space-y-6"
           >
             {/* Logo */}
-            <div className="flex items-center space-x-3 group">
-              <div className="relative w-12 h-12">
+            <div className="flex items-center group">
+              <div className="relative w-80 h-24 sm:w-[28rem] sm:h-32 lg:w-[32rem] lg:h-36 overflow-visible">
                 <Image
-                  src="/images/nav_logo.png"
+                  src="/images/kb_footer_logo.png"
                   alt="Kochukov & Blume Law Firm"
                   fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-200"
+                  className="object-contain group-hover:scale-110 transition-transform duration-200 scale-125 origin-left"
                 />
-              </div>
-              <div>
-                <h3 className="text-xl font-display font-bold">Kochukov & Blume</h3>
-                <p className="text-sm text-gray-300">Legal Excellence</p>
               </div>
             </div>
 
             {/* Description */}
             <p className="text-gray-300 leading-relaxed text-sm lg:text-base">
-              Providing trusted legal counsel and representation for over 20+ years. 
+              Providing trusted legal counsel and representation. 
               We are committed to protecting your rights and achieving the best possible outcomes for our clients.
             </p>
-
-            {/* Trust Indicators */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Shield className="w-4 h-4 text-steel-blue" />
-                <span>Licensed & Insured</span>
-              </div>
-            </div>
 
             {/* Social Links */}
             <div className="flex space-x-4">
@@ -241,9 +217,9 @@ export default function Footer() {
             {/* CTA Button */}
             <div className="pt-4">
               <ThemeAnimatedButton
-                variant="cyan"
                 size="md"
-                className="w-full"
+                variant="primary"
+                className="whitespace-nowrap rounded-xl"
                 onClick={() => window.location.href = '/contact'}
               >
                 Schedule Consultation
