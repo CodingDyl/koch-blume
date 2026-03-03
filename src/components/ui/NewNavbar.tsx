@@ -65,7 +65,7 @@ export default function NewNavbar() {
         }`}
       >
         <div className="max-w mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-20 sm:h-24">
             
             {/* Logo */}
             <Link href="/" className="relative z-50 flex items-center">
@@ -75,7 +75,7 @@ export default function NewNavbar() {
                 width={640}
                 height={200}
                 sizes="(min-width: 1280px) 520px, (min-width: 1024px) 460px, (min-width: 768px) 380px, (min-width: 640px) 320px, 260px"
-                className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300 hover:scale-105"
+                className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-all duration-300 hover:scale-105"
                 priority
               />
             </Link>

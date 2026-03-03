@@ -24,7 +24,7 @@ export default function AreaOfExpertise({
       icon: "/icons/corporate.png",
       title: "Corporate Law",
       description: "Strategic legal counsel for businesses of all sizes, from startups to multinational companies.",
-      features: ["Corporate Structuring Transactions", "Corporate Governance", "Compliance", "Contract Negotiation"]
+      features: ["Corporate Structuring Transactions", "Corporate Governance", "Regulatory and Compliance", "Contract Review & Negotiation"]
     },
     {
       icon: "/icons/family.png",
@@ -36,19 +36,19 @@ export default function AreaOfExpertise({
       icon: "/icons/construction.png",
       title: "Property Law",
       description: "Expert guidance through property transactions and real estate disputes.",
-      features: ["Commercial Leases", "Commercial Leases", "Rental and Levy Recovery", "Body Corporate Disputes"]
+      features: ["Commercial Leases", "Residential Leases", "Rental and Levy Recovery", "Body Corporate Disputes"]
     },
     {
       icon: "/icons/commercial.png",
       title: "Commercial Litigation",
       description: "Skilled representation in commercial disputes and complex business litigation matters.",
-      features: ["Contract Disputes", "Stakeholder Disputes", "Recovery Proceedings", "Unlawful Competition & Restraints"]
+      features: ["Contractual Disputes", "Stakeholder Disputes", "Recovery Proceedings", "Unlawful Competition & Restraints"]
     },
     {
       icon: "/icons/estate.png",
       title: "Estate Planning",
       description: "Comprehensive estate planning to protect your assets and secure your family's future.",
-      features: ["Wills & Trusts", "Estate Structuring", "Succession Planning", "Probate"]
+      features: ["Wills", "Trusts", "Estate Structuring", "Succession Planning"]
     },
     {
       icon: "/icons/commercial.png",
@@ -65,7 +65,7 @@ export default function AreaOfExpertise({
     {
       icon: "/icons/estate.png",
       title: "Debt Collection",
-      description: "Strategic and efficient legal solutions for the recovery of debt and enforcement of contractual and statutory rights.",
+      description: "Strategic and efficient legal debt recovery solutions and the enforcement of contractual and statutory rights.",
       features: ["Pre-Litigation Demands", "Recovery Proceedings", "Judgment Enforcement", "Settlement Negotiations"]
     },
     {
@@ -143,21 +143,13 @@ export default function AreaOfExpertise({
                     </p>
 
                     {/* Features - Simplified List */}
-                    <div className="space-y-2 pb-6 border-b border-gray-100">
+                    <div className="space-y-2">
                       {area.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start space-x-2">
                           <div className="w-1 h-1 rounded-full bg-steel-blue mt-2 flex-shrink-0" />
                           <span className="text-sm text-gray-600">{feature}</span>
                         </div>
                       ))}
-                    </div>
-
-                    {/* Learn More Link */}
-                    <div className="flex items-center justify-between pt-4 text-steel-blue text-sm font-medium">
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">
-                        Learn more
-                      </span>
-                      <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                   </div>
                 </Link>

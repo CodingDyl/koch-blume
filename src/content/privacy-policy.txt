@@ -1,0 +1,242 @@
+Kochukov and Blume Incorporated | Privacy Policy
+Definitions 
+In this Policy, unless the context requires otherwise, the following words and expressions bear the meanings assigned to them and similar expressions bear corresponding meanings: 
+“Child”, where the child is in the Republic of South Africa, means any natural person under the age of 18 (eighteen) years and where the child is in the European Union, any natural person under the age of 16 (sixteen) years; 
+“Data Breach” means a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, Personal Information under the control of or in the possession of the Firm; 
+“Data Subject” means the person to whom Personal Information relates;
+“Direct Marketing” means to approach a person, by electronic communication, for the purpose of promoting or offering to supply, in the ordinary course of business, any goods or services to the Data Subject;
+“Direct Marketer” means a supplier who employs Direct Marketing as an advertising mechanism;
+“EEA” means the European Economic Area, being the EU Member States plus Iceland, Liechtenstein and Norway; 
+“Employees” means any employee of the Firm;
+“Firm” means Kochukov and Blume Incorporated and the terms we, us or our shall have a corresponding meaning; 
+“GDPR” means Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation);
+“Operator” means a person or entity who Processes Personal Information for a Responsible Party in terms of a contract or mandate, without coming under the direct authority of that Responsible Party;
+“Personal Information” means information relating to a Data Subject (for purposes of the GDPR, this is specifically limited to natural persons only), including but not limited to (i) views or opinions of another individual about the Data Subject; and (ii) information relating to such Data Subject’s: 
+race, sex, gender, sexual orientation, pregnancy, marital status, nationality, ethnic or social origin, colour, age, physical or mental health, well-being, disability, religion, conscience, belief, cultural affiliation, language and birth;
+education, medical, financial, criminal or employment history;
+names, identity number and/or any other personal identifier, including any number(s), which may uniquely identify a Data Subject, account or client number, password, pin code, customer or Data Subject code or number, numeric, alpha, or alphanumeric design or configuration of any nature, symbol, email address, domain name or IP address, physical address, cellular phone number, telephone number or other particular assignment;
+blood type, fingerprint or any other biometric information;
+personal opinions, views or preferences;
+correspondence that is implicitly or expressly of a personal, private or confidential nature (or further correspondence that would reveal the contents of the original correspondence); and
+corporate structure, composition and business operations (in circumstances where the Data Subject is a juristic person) irrespective of whether such information is in the public domain or not;
+“Policy” means this Privacy Policy;
+“POPIA” means the Protection of Personal Information Act 4 of 2013;
+“Processing” or “Process” means any operation or activity or any set of operations, whether or not by automatic means, concerning Personal Information, including: 
+the collection, receipt, recording, organisation, collation, storage, updating or modification, retrieval, alteration, consultation or use;
+dissemination by means of transmission, distribution or making available in any other form by electronic communications or other means; or
+merging, linking, blocking, degradation, erasure or destruction; 
+“Regulator” means either (i) the South African Information Regulator established in terms of POPIA; or (ii) the relevant supervisory authority under the GDPR;
+“Responsible Party” means a public or private body or any other person which alone or in conjunction with others, determines the purpose of and means for Processing Personal Information;
+“Special Personal Information” means Personal Information concerning a Data Subject’s religious or philosophical beliefs, race or ethnic origin, trade union membership, political opinions, health, sexual life, sexual orientation, genetic information, biometric information or criminal behaviour;
+“Third Party” means any independent contractor, agent, consultant, sub-contractor or other representative of the Firm; and
+“Website” means the Firm’s website, currently located at www.kblegal.co.za. 
+Unless expressly defined in this Policy, any capitalised term used herein which is defined in POPIA shall bear the meaning assigned to it in POPIA. In the event of any inconsistency between a definition contained in this Policy and the definition of the same term in POPIA, the definition contained in POPIA shall prevail to the extent of such inconsistency. Where a capitalised term is defined in both POPIA and the GDPR, such term shall bear the meaning ascribed to it under the applicable legislation governing the relevant Processing activity.
+Purpose 
+The purpose of this Policy is to inform Data Subjects about how the Firm Processes their Personal Information. 
+Application 
+The Firm, in its capacity as Responsible Party and/or Operator, shall strive to observe, and comply with its obligations under POPIA and, where relevant, the GDPR, as well as accepted information protection principles, practices and guidelines when it Processes Personal Information from, or in respect of, a Data Subject.
+This Policy applies to Personal Information collected by the Firm in connection with the services which we offer and provide. This includes information collected directly from you as a Data Subject, as well as information we collect indirectly through our Direct Marketing campaigns and online through our websites, branded pages on Third Party platforms and applications accessed or used through such websites or Third Party platforms which are operated by or on behalf of the Firm.
+This Privacy Policy does not apply to the information practices of Third Party companies who we may engage with in relation to our business operations (including, without limitation, their websites, platforms and/or applications) which we do not own or control or individuals that the Firm does not manage or employ. These Third Party sites may have their own privacy policies and terms and conditions and we encourage you to read them before using them.
+The Firm may Process Personal Information in different capacities depending on the context in which such Personal Information is received or Processed. 
+The Firm acts as a Responsible Party where it determines the purpose of and means for Processing Personal Information, including but not limited to:
+Personal Information relating to its employees, directors, consultants and job applicants;
+Personal Information collected through its Website;
+Personal Information Processed for marketing, administrative, financial, compliance or operational purposes; and 
+Personal Information relating to its own clients for purposes of managing its client relationships and internal records.
+Where the Firm acts as a Responsible Party, it shall comply with the obligations imposed upon Responsible Parties under POPIA and, where applicable, the GDPR, including ensuring that there is a lawful basis for Processing.
+The Firm acts as an Operator where it Processes Personal Information on behalf of a client (who is the Responsible Party) in terms of a mandate, engagement, or written agreement, and where the client determines the purpose of and means for Processing such Personal Information.
+Where the Firm acts as an Operator:
+the Firm will Process Personal Information only in accordance with the client’s documented instructions, unless required to do otherwise by law;
+the client, as Responsible Party, retains primary responsibility for ensuring compliance with applicable data protection laws in respect of such Processing; and
+the Firm will implement reasonable security measures to protect such Personal Information in accordance with applicable law and professional obligations.
+Nothing in this Policy shall be interpreted as transferring responsibility from a client (as Responsible Party) to the Firm where the Firm acts strictly in its capacity as an Operator.
+Legal Professional Privilege 
+The Firm is a firm of attorneys and, in the course of providing legal services, Processes Personal Information that may be subject to legal professional privilege and/or duties of strict confidentiality. 
+Nothing in this Policy shall be interpreted as limiting, waiving, or overriding any right, duty, or obligation of legal professional privilege, litigation privilege, or attorney-client confidentiality attaching to any information received, created, or held by the Firm in the course of providing legal services. 
+Where the Firm Processes Personal Information in the context of providing legal advice, representing clients in litigation, conducting investigations, or performing any function protected by legal professional privilege, such Processing shall be subject to the applicable rules of privilege and professional confidentiality in addition to the requirements of POPIA and, where applicable, the GDPR. 
+The Firm shall not disclose any information subject to legal professional privilege unless:
+the client has expressly waived such privilege; 
+disclosure is required by law and/or a valid court order; 
+such disclosure is otherwise permitted in terms of applicable professional conduct rules.
+Where the Firm acts as an Operator on behalf of a client, the Firm acknowledges that Personal Information provided to it may be subject to legal professional privilege belonging to that client, and the Firm will treat such information in accordance with its professional obligations.
+Collecting Personal Information 
+The Firm collects Personal Information directly from Data Subjects, unless an exception is applicable (such as, for example, where the Data Subject has made the Personal Information public or the Personal Information is contained in or derived from a public record).
+The Firm implements reasonable measures designed to collect Personal Information in a fair, lawful and reasonable manner to ensure that it protects the Data Subject’s privacy and will Process the Personal Information based on legitimate grounds in a manner that does not adversely affect the Data Subject in question.
+The Firm often collects Personal Information directly from the Data Subject and/or in some cases, from Third Parties.
+Where the Firm obtains Personal Information from Third Parties, the Firm implements reasonable measures designed to ensure that it obtains the consent of the Data Subject to do so or will only Process the Personal Information without the Data Subject’s consent where the Firm is permitted to do so in terms of clause 4.1 above.
+An example of such Third Parties include: 
+our clients when the Firm handles Personal Information on their behalf; 
+credit reference agencies; 
+background and criminal check agencies; 
+other companies providing services to the Firm; and 
+where the Firm makes use of publicly available sources of information.
+Lawful Processing of Personal Information 
+Where the Firm is the Responsible Party, it will only Process a Data Subject’s Personal Information (other than for Special Personal Information) where: 
+consent of the Data Subject (or a competent person where the Data Subject is a Child) is obtained;
+processing is necessary to carry out the actions for conclusion of a contract to which a Data Subject is party;
+processing complies with an obligation imposed by law on the Firm;
+processing protects a legitimate interest of the Data Subject; and/or
+processing is necessary for pursuing the legitimate interests of the Firm or of a third party to whom the information is supplied. 
+The Firm will only Process Personal Information where one of the legal bases referred to in paragraph 5.1 above are present.
+The Firm will make the manner and reason for which the Personal Information will be Processed clear to the Data Subject.
+Where the Firm is relying on a Data Subject’s consent as the legal basis for Processing Personal Information, the Data Subject may withdraw his/her/its consent or may object to the Firm’s Processing of the Personal Information at any time. However, this will not affect the lawfulness of any Processing carried out prior to the withdrawal of consent.
+If the consent is withdrawn or if there is otherwise a justified objection against the use or the Processing of such Personal Information, the Firm implements reasonable measures designed to ensure that the Personal Information is no longer Processed.
+Special Personal Information and Personal Information of Children 
+Special Personal Information is sensitive Personal Information of a Data Subject and the Firm acknowledges that it will generally not Process Special Personal Information unless: 
+Processing is carried out in accordance with the Data Subject’s explicit consent; or
+information has been deliberately made public by the Data Subject; or 
+Processing is necessary for the establishment, exercise or defence of a right or legal claim or obligation in law); or 
+Processing is for historical, statistical or research purposes, subject to stipulated safeguards; or 
+for purposes of POPIA, specific authorisation has been obtained in terms of POPIA; and
+for purposes of the GDPR: 
+Processing is necessary for the purposes of carrying out the obligations and exercising specific rights of the Firm or of the Data Subject in the field of employment and social security and social protection law;
+Processing is necessary to protect the vital interests of the data subject or of another natural person where the Data Subject is physically or legally incapable of giving consent;
+Processing is necessary for the establishment, exercise or defence of legal claims or whenever courts are acting in their judicial capacity;
+Processing is necessary for reasons of substantial public interest;
+Processing is necessary for the purposes of preventative or occupational medicine; or
+Processing is necessary for reasons of public interest in the area of public health.
+The Firm acknowledges that it may not Process any Personal Information concerning a Child and will only do so where it has obtained the consent of the parent or guardian of that Child or where it is permitted to do so in accordance with applicable laws.
+Purpose of Processing Personal Information 
+The Firm understands its obligation to make Data Subjects aware of the fact that it is Processing their Personal Information and inform them of the purpose for which the Firm Processes such Personal Information.
+The Firm will only Process a Data Subject’s Personal Information for a specific, lawful and clear purpose (or for specific, lawful and clear purposes) and will ensure that it makes the Data Subject aware of such purpose(s) as far as possible.
+The Firm implements reasonable measures designed to ensure that there is a legal basis for the Processing of any Personal Information. Further, the Firm implements reasonable measures to ensure that Processing will relate only to the purpose for and of which the Data Subject has been made aware (and where relevant, consented to) and will not Process any Personal Information for any other purpose(s).
+The Firm will generally use Personal Information for purposes required to operate and manage its normal business operations and these purposes include one or more of the following non-exhaustive purposes: 
+for the purposes of providing its services to the Data Subject from time to time;
+Personal Information is processed as part of the Know Your Customer (KYC) process as per the requirements of the Financial Intelligence Centre Act 38 of 2001;
+Personal Information is processed in order to conduct due diligence processes on the Firm’s clients;
+Personal Information is processed in order to comply with obligations imposed on the Firm under the Based Black Economic Empowerment Act 53 of 2003 (“BEE Act”) read together with the Department of Trade and Industry’s Codes of Good Practice on Broad-Based Black Economic Empowerment published in terms of Government Gazette No. 36928 on 11 October 2013 under section 9(1) of the BEE Act, as amended or reissued from time to time; 
+Personal Information is processed for the purposes of performing general information technology-related functions for all business functions within the Firm;
+for purposes of interacting with you on our Website and generally monitoring your use our Website, including for purposes of improving same;
+Personal Information is processed in connection with internal audit purposes (i.e. ensuring that the appropriate internal controls are in place in order to mitigate the relevant risks, as well as to carry out any investigations where this is required);
+Personal Information is processed for pre-employment related purposes, such as assessing the documentation you have provided to assess your qualifications and suitability for a position you have applied for;
+Personal Information is processed for employment related purposes such as administering payroll, assessing credit and criminal history, and determining Employment Equity Act 55 of 1998 statistics;
+to respond to any correspondence that the Data Subject may send to the Firm, including via email, the Firm’s site(s) or by telephone;
+in connection with the execution of payment processing functions, including payment of the Firm’s suppliers’ invoices;
+to contact the Data Subject for direct marketing purposes subject to the provisions of clause 10 below;
+for such other purposes to which the Data Subject may consent from time to time; and
+for such other purposes as authorised in terms of applicable law.
+Keeping Personal Information Accurate 
+The Firm will take reasonable steps to ensure that all Personal Information is kept as accurate, complete and up to date as reasonably possible depending on the purpose for which Personal Information is collected or further Processed.
+The Firm may not always expressly request the Data Subject to verify and update his/her/its Personal Information, unless this process is specifically necessary.
+The Firm, however, expects that the Data Subject will notify the Firm from time to time in writing of any updates required in respect of his/her/its Personal Information. 
+Storage and Processing of Personal Information by the Firm and Third Party Service Providers 
+The Firm may store your Personal Information in hard copy format and/or in electronic format using the Firm’s own secure on-site servers or other internally hosted technology. Your Personal Information may also be stored by Third Parties, via cloud services or other technology, with whom the Firm has contracted with, to support the Firm’s business operations.
+The Firm’s Third Party service providers, including data storage and processing providers, may from time to time also have access to a Data Subject’s Personal Information in connection with purposes for which the Personal Information was initially collected to be Processed.
+The Firm implements reasonable measures designed to ensure that such Third Party service providers will process the Personal Information in accordance with the provisions of this Policy, all other relevant internal policies and procedures and POPIA and, where relevant, the GDPR.
+These Third Parties do not use or have access to your Personal Information other than for purposes specified by us, and the Firm requires such parties to employ at least the same level of security that the Firm uses to protect your personal data.
+Your Personal Information may be Processed in South Africa or another country where the Firm, its affiliates and their Third Party service providers maintain servers and facilities and the Firm will take steps, including by way of contracts, to ensure that it continues to be protected, regardless of its location, in a manner consistent with the standards of protection required under applicable law.
+Personal Information for Direct Marketing Purposes 
+To the extent that the Firm acts in its capacity as a Direct Marketer, it shall strive to observe, and comply with its obligations under POPIA and, where relevant, the GDPR when implementing principles and practices in relation to Direct Marketing.
+The Firm acknowledges that it may only use Personal Information to contact the Data Subject for purposes of Direct Marketing from time to time where it is permissible to do so.
+It may use Personal Information to contact any Data Subject and/or market the Firm’s services directly to the Data Subject(s) if the Data Subject is one of the Firm’s existing clients, the Data Subject has requested to receive marketing material from the Firm or the Firm has the Data Subject’s consent to market its services directly to the Data Subject.
+If the Data Subject is an existing client, the Firm will only use his/her/its Personal Information if it has obtained the Personal Information through the provision of a service to the Data Subject and only in relation to similar services to the ones the Firm previously provided to the Data Subject.
+The Firm implements reasonable measures designed to ensure that a reasonable opportunity is given to the Data Subject to object to the use of their Personal Information for the Firm’s marketing purposes when collecting the Personal Information and on the occasion of each communication to the Data Subject for purposes of Direct Marketing.
+The Firm will not use your Personal Information to send you marketing materials if you have requested not to receive them. If you request that we stop Processing your Personal Information for marketing purposes, the Firm shall do so. We encourage that such requests to opt-out of marketing be made via forms and links provided for that purpose in the marketing materials sent to you. 
+Retention of Personal Information 
+The Firm may keep records of the Personal Information it has collected, correspondence, or comments in an electronic or hard copy file format.
+The Firm will not retain personal information for a period longer than is necessary to achieve the purpose for which it was collected or processed and is required to delete, destroy (in such a way that it cannot be reconstructed) or de-identify the information as soon as is reasonably practicable once the purpose has been achieved. This prohibition will not apply in the following circumstances: 
+where the retention of the record is required or authorised by law;
+the Firm requires the record to fulfil its lawful functions or activities;
+retention of the record is required by a contract between the parties thereto;
+the Data Subject (or competent person, where the Data Subject is a child) has consented to such longer retention; or
+the record is retained for historical, research or statistical purposes provided safeguards are put in place to prevent use for any other purpose.
+Where you have applied to the Firm for a position, we will retain such Personal Information for a period of 24 (twenty-four) months from the date of submission of application. After this period, your Personal Information will be securely deleted or anonymised, unless you request that we retain your Personal Information for future opportunities. If at any point before the 24 (twenty-four) month retention period expires, you would like your Personal Information to be deleted, you can contact us to request deletion. Upon receiving your request, we will delete your Personal Information unless we are required by law to retain it.
+Accordingly, the Firm will, subject to the exceptions noted herein, retain Personal Information for as long as necessary to fulfil the purposes for which that Personal Information was collected and/or as permitted or required by applicable law.
+Where the Firm retains Personal Information for longer period for statistical, historical or research purposes, the Firm implements reasonable measures to ensure that appropriate safeguards have been put in place to ensure that all recorded Personal Information will continue to be Processed in accordance with this Policy and the applicable laws.
+Once the purpose for which the Personal Information was initially collected and Processed no longer applies or becomes obsolete, the Firm will implement reasonable measures to ensure that the Personal Information is deleted, destroyed or de-identified sufficiently so that a person cannot re-identify such Personal Information.
+In instances where we de-identify your Personal Information, the Firm may use such de-identified information indefinitely.
+Failure to Provide Personal Information 
+Should the Firm need to collect Personal Information by law or under the terms of a contract that the Firm may have with you and you fail to provide the Personal Information when requested, we may be unable to perform the contract we have or are attempting to enter into with you.
+In such a case, the Firm may have to decline to provide or receive the relevant services, and you will be notified where this is the case.
+Safe Keeping of Personal Information 
+The Firm shall preserve the security of Personal Information and, in particular, prevent its alteration, loss and damage, or access by non-authorised third parties.
+The Firm implements reasonable measures designed to ensure the security and integrity of Personal Information in its possession or under its control with appropriate, reasonable technical and organisational measures to prevent loss, unlawful access and unauthorised destruction of Personal Information.
+Limitation of Security Assurances 
+While the Firm implements and maintains appropriate, reasonable technical and organisational measures designed to safeguard Personal Information against loss, misuse, unauthorised access, disclosure, alteration or destruction, no method of transmission over the internet, electronic storage system, or information security system can be guaranteed to be completely secure.
+Accordingly, the Firm does not warrant or guarantee the absolute security of any Personal Information transmitted to or from the Firm and disclaims, to the fullest extent permitted by law, any liability arising from unauthorised access to, or loss of, Personal Information where the Firm has complied with its obligations under applicable data protection laws.
+The Firm shall not be liable for any security breach that occurs as a result of:
+the Data Subject’s failure to safeguard their own login credentials, passwords, devices or communication systems;
+malicious acts, cyberattacks, or events beyond the Firm’s reasonable control, provided that the Firm has implemented reasonable safeguards as required by law; or
+vulnerabilities inherent in third-party platforms, service providers, telecommunications networks, or internet infrastructure not under the Firm’s direct control.
+Breaches of Personal Information 
+A Data Breach refers to any incident in terms of which reasonable grounds exist to believe that the Personal Information of a Data Subject has been accessed or acquired by any unauthorised person.
+A Data Breach can happen for many reasons, which include:
+loss or theft of data or equipment on which Personal Information is stored; 
+inappropriate access controls allowing unauthorised use; 
+equipment failure; 
+human error; 
+unforeseen circumstances, such as a fire or flood; 
+deliberate attacks on systems, such as hacking, viruses or phishing scams; and/or 
+alteration of Personal Information without permission and loss of availability of Personal Information.
+The Firm will address any Data Breach in accordance with the terms of POPIA and, where relevant, the GDPR.
+The Firm will notify the Regulator and the affected Data Subject (unless the applicable law requires that we delay notification to the Data Subject) in writing in the event of a Data Breach (or a reasonable belief of a Data Breach) in respect of that Data Subject’s Personal Information.
+The Firm will provide such notification as soon as reasonable possible and, where feasible, not later than 72 (seventy-two) hours after having become aware of any Data Breach in respect of such Data Subject’s Personal Information.
+Where the Firm acts as an ‘Operator’ and should any Data Breach affect the data of Data Subjects whose information the Firm Processes as an Operator, the Firm shall (in terms of POPIA and, where applicable, the GDPR) notify the relevant Responsible Party immediately where there are reasonable grounds to believe that the Personal Information of relevant Data Subjects has been accessed or acquired by any unauthorised person. 
+Provision of Personal Information to Third Party Service Providers 
+The Firm may disclose Personal Information to Third Parties and will enter into written agreements with such Third Parties to ensure that they Process any Personal Information in accordance with the provisions of this Policy, and POPIA and, where relevant, the GDPR.
+The Firm notes that such Third Parties may assist the Firm with the purposes listed in paragraph 7.4 above. For example, service providers may be used, inter alia: 
+to notify the Data Subjects of any pertinent information concerning the Firm; 
+for data storage; and/or 
+to assist the Firm with auditing processes (external auditors).
+The Firm will disclose Personal Information with the consent of the Data Subject or if the Firm is permitted to do so without such consent in accordance with the applicable laws.
+Cross-border transfers of Personal Information
+The Firm may transfer, store, or otherwise Process Personal Information in a jurisdiction outside the Republic of South Africa, including where the Firm or its Third Party service providers make use of cloud-based systems, servers, software applications, email hosting, document management systems, or other infrastructure located outside South Africa.
+Where Personal Information is transferred outside South Africa, the Firm will ensure that the transfer is permitted in terms of section 72 of POPIA, and will not transfer Personal Information to a recipient in a foreign country unless one or more of the following requirements are met: 
+the recipient is subject to a law, binding corporate rules, binding agreement, or other binding instrument which provides an adequate level of protection that is substantially similar to the conditions for lawful Processing of Personal Information under POPIA; 
+the Firm has concluded a written agreement with the recipient (including an Operator agreement), requiring the recipient to Process the Personal Information only on the Firm’s documented instructions, to implement appropriate technical and organisational security safeguards, to maintain confidentiality, to restrict onward transfers, and to notify the Firm of any actual or suspected security compromise affecting the Personal Information; 
+the Data Subject (or, where applicable, a competent person) has consented to the transfer, provided that the Data Subject has been informed that the recipient is in a foreign jurisdiction and that the protection of Personal Information in that jurisdiction may not be substantially similar to the protection afforded under POPIA; 
+the transfer is necessary for the performance of a contract between the Data Subject and the Firm, or for the implementation of pre-contractual measures taken in response to the Data Subject’s request; 
+the transfer is necessary for the conclusion or performance of a contract concluded in the interest of the Data Subject between the Firm and a Third Party; and/or; 
+the transfer is for the benefit of the Data Subject, and it is not reasonably practicable to obtain the Data Subject’s consent to that transfer, and if it were reasonably practicable to obtain such consent the Data Subject would likely give it. 
+The Firm will take reasonable steps to ensure that any recipient in a foreign jurisdiction (including Third Party service providers) only Processes Personal Information for the purposes for which it was transferred and in accordance with the Firm’s instructions, this Policy, and applicable law. 
+The Data Subject acknowledges that where Personal Information is transferred to, stored in, or Processed in a foreign jurisdiction, it may be subject to the laws of that jurisdiction and may, in limited circumstances, be accessible to lawful requests by courts, law enforcement, or regulatory authorities in that jurisdiction.
+Where the GDPR applies to the Firm’s Processing, and Personal Information is transferred outside the EEA, the Firm will ensure that such transfer is made in accordance with the GDPR’s cross-border transfer requirements, including where applicable through an adequacy decision, appropriate safeguards (such as standard contractual clauses), or a lawful derogation.
+Access to Personal Information 
+A Data Subject has certain rights under POPIA and, where applicable, the GDPR, including the following:
+a Data Subject has a right to object to Processing of their Personal Information in terms of Section 11(3) of POPIA; 
+a Data Subject has a right to object to direct marketing in terms of Section 11(3)(b) of POPIA;
+a Data Subject has a right to lodge a complaint with the Information Regulator as contemplated in POPIA;
+a Data Subject having provided adequate proof of identity has the right to: 
+request a Responsible Party to confirm whether any Personal Information is held about the Data Subject; and/or 
+request from a Responsible Party a description of the Personal Information held by the Responsible Party including information about Third Parties who have or have had access to the Personal Information; 
+a Data Subject may request:
+the Firm to confirm, free of charge, whether it holds any Personal Information about him/her/it; and
+to obtain from the Firm the record or description of Personal Information concerning him/her/it and any information regarding the recipients or categories of recipients who have or had access to the Personal Information. Such record or description is to be provided within a reasonable time and in a reasonable manner and format and in a form that is generally understandable; 
+a Data Subject may also request the Firm to: 
+correct or delete Personal Information about the Data Subject in its possession or under its control that is inaccurate, irrelevant, excessive, out of date, incomplete, misleading or obtained unlawfully; or
+destroy or delete a record of Personal Information about the Data Subject that the Firm is no longer authorised to retain records in terms of POPIA’s and, where applicable, the GDPR’s retention and restriction of records provisions; 
+a Data Subject that has previously consented to the Processing of his/her/its Personal Information has the right to withdraw such consent and may do so by providing the Firm with notice to such effect at the address set out in paragraph 21. Further, a Data Subject may object, on reasonable grounds, to the Processing of Personal Information relating to him/her/it.
+On receipt of such a request, the Firm is required to, as soon as is reasonably practicable: 
+correct the information;
+delete or destroy the information;
+provide the Data Subject with evidence in support of the information; or
+where the Data Subject and Responsible Party cannot reach agreement on the request and if the Data Subject requests this, the Firm will take reasonable steps to attach to the information an indication that correction has been requested but has not been made. 
+Accordingly, the Firm may request the Data Subject to provide sufficient identification to permit access to, or provide information regarding the existence, use or disclosure of the Data Subject’s Personal Information.
+Any such identifying information shall only be used for the purpose of facilitating access to or information regarding the Personal Information.
+The Data Subject can request in writing to review any Personal Information about the Data Subject that the Firm holds including Personal Information that the Firm has collected, utilised or disclosed, as well as the following information:
+the purposes of Processing; 
+the categories of Personal Information concerned; 
+where possible, the envisaged period for which the Personal Information will be stored or, if not possible, the criteria used to determine that period; 
+the existence of the right to request from the Firm rectification or erasure of Personal Information or restriction of Processing of Personal Information concerning the Data Subject or to object to such processing; 
+the right to lodge a complaint with the Regulator; (vi) where the Personal Information is not collected from the Data Subject, any available information as to their source; and 
+the existence of automated Processing, including profiling and, at least in those cases, meaningful information about the logic involved as well as the significance and the envisaged consequences of such processing for the Data Subject. 
+The Firm shall respond to these requests in accordance with POPIA and, where applicable, the GDPR and will provide the Data Subject with any such Personal Information to the extent required by law and any of the Firm’s policies and procedures which apply in terms of the Promotion of Access to Information Act 2 of 2000 (“PAIA”).
+The Data Subject can challenge the accuracy or completeness of his/her/its Personal Information in the Firm’s records at any time in accordance with the process set out in the Firm’s manual developed in terms of PAIA for accessing information.
+If a Data Subject successfully demonstrates that their Personal Information in the Firm’s records is inaccurate or incomplete, the Firm will ensure that such Personal Information is amended or deleted as required (including by any Third Parties).
+Time Periods 
+The Firm will respond to each written request of a Data Subject not later than 30 (thirty) days after receipt of such requests. Under certain circumstances, the Firm may, however, extend the original period of 30 (thirty) days once for a further period of not more than 30 (thirty) days.
+A Data Subject has the right to make a complaint to the Firm in respect of this time limit by contacting the Firm using the contact details provided in paragraph 21 below. 
+Costs of Access to Personal Information 
+The prescribed fees to be paid for copies of the Data Subject’s Personal Information are listed in the PAIA Manual.
+Use of Website Cookies 
+Our Website uses cookies, which are small text files sent by a web server to store on a web browser. They are used to ensure websites function properly, store user preferences when needed and collect anonymous statistics on website usage.
+You may refuse to accept cookies by activating the setting on your browser which allows you to refuse the setting of cookies. However, if you select this setting, you may be unable to access certain parts of our website. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you log on to the website. If you accept a cookie, you agree that we may use your personal information collected using cookies (subject to the provisions of this Policy). Where you either reject or decline cookies, you are informed that you may not be able to fully experience the interactive features of our Website.
+Changes to this Policy 
+The Firm reserves the right to make amendments to this Policy from time to time and will use reasonable efforts to notify Data Subjects of such amendments.
+The current version of this Policy will govern the respective rights and obligations between you and the Firm each time that you access and use our Website.
+Our Contact Details 
+If a Data Subject is unsatisfied with the manner in which the Firm addresses any complaint with regard to the Firm’s Processing of Personal Information, the Data Subject can contact the office of the relevant Regulator.
+Name: Kochukov and Blume Incorporated 
+Physical Address: 1st Floor, 145 Second Street, Sandton 
+Information Officer: Justin Blume 
+Email: justin.blume@kblegal.co.za 

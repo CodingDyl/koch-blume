@@ -215,6 +215,10 @@ export default function ServicesPage() {
                    style={{ fontFamily: 'var(--font-body)' }}>
                   Monday - Friday: 8:00 AM - 6:00 PM
                 </p>
+                <p className="text-sm sm:text-base text-white/90"
+                   style={{ fontFamily: 'var(--font-body)' }}>
+                  Saturday: 9:00 AM - 1:00 PM
+                </p>
               </div>
             </motion.div>
           </div>

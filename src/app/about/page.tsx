@@ -18,21 +18,21 @@ export default function AboutPage() {
   const attorneys = [
     {
       name: "David Kochukov",
-      title: "Senior Partner",
-      subtitle: "Admitted Attorney of the High Court | Director",
+      title: "Director",
+      subtitle: "Admitted Attorney of the High Court",
       specialization: "Corporate and Commercial Law",
       experience: "Liquidations, Business Rescues, Company Law, Construction Law, Restraint of Trade disputes, Arbitrations and Mediations, Debt Collections and General Civil Litigation",
-      education: "BA(LLB)",
+      education: "BA (Wits) LLB (Wits)",
       bio: "As an Admitted Attorney of the High Court, David's primary practice rests in Corporate and Commercial Law. His deepest pools of experience are in Liquidations, Business Rescues, Company Law, Construction Law, Restraint of Trade disputes, Arbitrations and Mediations, Debt Collection and General Civil Litigation. His passions in these sectors began during his studies at the University of the Witwatersrand, where he obtained his LLB degree. David believes that knowledge of the law is fundamental to any successful business. He actively imparts this knowledge onto his clients as he works diligently to secure their present interests so that they are better equipped for the future. Working in tandem with his clients, David leverages his experience to fight for the best outcome, ensuring that each attorney-client relationship with KB Incorporated is cemented in the long-term, and to the mutual benefit of each party.",
       image: david
     },
     {
       name: "Justin Blume",
-      title: "Senior Partner", 
-      subtitle: "Admitted Attorney of the High Court | Director",
+      title: "Director", 
+      subtitle: "Admitted Attorney of the High Court",
       specialization: "Corporate and Commercial Law, Family Law, Insolvency and Business Rescue",
       experience: "Corporate and Commercial Law, Family Law, Insolvency and Business Rescue, Dispute Resolution, and Debt Collection",
-      education: "LLB",
+      education: "LLB (Unisa)",
       bio: "Justin is an Admitted Attorney of the High Court, having started his legal journey as a paralegal in a renowned boutique law firm while in the process of completing his degree, and thereafter completing his articles. During this time, Justin developed his passion and focus in Corporate and Commercial Law, whilst remaining committed to garnering knowledge and skills in Family Law, Insolvency and Business Rescue, Dispute Resolution, and Debt Collection. Committed to providing his clients with the best possible service, Justin takes a collaborative approach to legal work by working alongside his clients to understand their objectives and support their growth in a practical and considered way, all the while considering and prioritising his clients’ long term needs.",
       image: justin
     }
