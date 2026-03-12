@@ -19,17 +19,20 @@ export default function Footer() {
 
   const footerLinks = {
     services: [
-      { name: "Corporate Law", href: "/services#corporate" },
-      { name: "Family Law", href: "/services#family" },
-      { name: "Real Estate Law", href: "/services#real-estate" },
-      { name: "Criminal Defense", href: "/services#criminal" },
-      { name: "Business Litigation", href: "/services#litigation" },
-      { name: "Estate Planning", href: "/services#estate" },
+      { name: "Corporate Law", href: "/services" },
+      { name: "Family Law", href: "/services" },
+      { name: "Property Law", href: "/services" },
+      { name: "Commercial Litigation", href: "/services" },
+      { name: "Estate Planning", href: "/services" },
+      { name: "Labour Law", href: "/services" },
+      { name: "Insolvency and Business Rescue", href: "/services" },
+      { name: "Debt Collection", href: "/services" },
+      { name: "Criminal Defense", href: "/services" },
     ],
     company: [
       { name: "About Us", href: "/about" },
       { name: "Our Team", href: "/about#team" },
-      { name: "Testimonials", href: "/#testimonials" },
+      { name: "Google Reviews", href: "/#google-reviews" },
     ],
     resources: [
       { name: "Legal Resources", href: "/resources" },

@@ -22,6 +22,12 @@ FROM_EMAIL=onboarding@resend.dev
 # Example: https://cal.com/kochukov-blume/consultation
 NEXT_PUBLIC_CAL_BOOKING_URL=https://cal.com/username/consultation
 
+# Google Reviews (Client-side Places API)
+# Enable Places API and create a browser API key in Google Cloud Console
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_browser_api_key
+# Place ID for your business profile
+NEXT_PUBLIC_GOOGLE_PLACE_ID=your_google_place_id
+
 # ===========================================
 # INSTRUCTIONS:
 # 1. Create a file named .env.local in the project root
