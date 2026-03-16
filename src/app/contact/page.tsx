@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 import { 
   Mail, 
   MapPin, 
   Phone, 
   Clock,
   CheckCircle,
-  Calendar,
+  ArrowLeft,
+  ExternalLink,
   Upload,
   Paperclip,
   X as XIcon
@@ -18,6 +20,8 @@ import Image from "next/image";
 import { david, justin } from "../../../public/index";
 
 export default function ContactPage() {
+  const bookingUrl = "https://cal.com/kb-legal/kb-inc-consult";
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -441,24 +445,30 @@ export default function ContactPage() {
                 <div className="text-center py-8">
                   <p className="text-base sm:text-lg text-gray-600 mb-8"
                      style={{ fontFamily: 'var(--font-body)' }}>
-                    Schedule a consultation at a time that works for you
+                    Book your consultation on our dedicated scheduling page.
                   </p>
-                  
-                  <a
-                    href={process.env.NEXT_PUBLIC_CAL_BOOKING_URL || 'https://cal.com'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#548caf] text-white rounded-xl hover:bg-[#548caf]/90 transition-all duration-200 text-base font-medium shadow-lg hover:shadow-xl"
-                    style={{ fontFamily: 'var(--font-body)' }}
-                  >
-                    Book Your Consultation
-                    <Calendar className="w-5 h-5" />
-                  </a>
-                  
-                  <p className="text-center text-sm text-gray-500 mt-4"
-                     style={{ fontFamily: 'var(--font-body)' }}>
-                    You&apos;ll be redirected to our scheduling page
-                  </p>
+
+                  <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                    <Link
+                      href="/"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#548caf]/20 px-6 py-3 text-sm font-medium text-[#1a385c] transition-colors duration-200 hover:bg-[#548caf]/5"
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      <ArrowLeft className="h-4 w-4" />
+                      Return to website
+                    </Link>
+
+                    <a
+                      href={bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#548caf] px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-[#548caf]/90"
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      Book a consultation
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>
